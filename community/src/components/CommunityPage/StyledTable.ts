@@ -9,4 +9,5 @@ export const StyledTable = styled.table`
         border-top: 3px solid #5C9B57;
         text-align:center;
     }
+    font-family:'KBO-Dia-Gothic_light';
 `

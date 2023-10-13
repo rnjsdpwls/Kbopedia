@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { StyledButton } from "./StyledButton";
 
 
-interface QuizBtn_Props {
+interface ToPosting {
     label: string;
 }
 
-export default function QuizBtn({ label}: QuizBtn_Props) {
+export default function ToPosting({label}: ToPosting) {
     const navigate = useNavigate();
     const handleButtonClick = () => {
         navigate('/Posting');

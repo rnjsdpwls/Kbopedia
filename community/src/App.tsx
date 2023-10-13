@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Button from "./components/Button/Button";
 import Community from "./components/CommunityPage/Community";
 import Posting from "./components/CommunityPage/Posting";
 import Header from "./components/Header/Header";
