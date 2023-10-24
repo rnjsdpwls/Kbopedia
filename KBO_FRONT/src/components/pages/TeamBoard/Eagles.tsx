@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, ImagePosition, PostBtnPosition, StyeldImages, StyledTable } from '../CommunityPage/StyledCommunity';
 import axios from 'axios';
 import PostBtn from '../CommunityPage/PostBtn';
-import Eagles from '../../../images/Eagles_logo.png'
+import Eagles from '../../../images/teamLogo/Eagles_logo.png'
 // 데이터의 타입을 정의한 인터페이스
 interface DataItem {
   num: number;
@@ -31,7 +31,7 @@ export default function Community() {
 
   const header = ["번호", "제목", "글쓴이", "등록일", "조회"];
 
-  
+
 
   return (
     <div>
@@ -57,7 +57,7 @@ export default function Community() {
             ) : (
               // 데이터가 로딩된 후에 보여줄 내용
               data.map((item, index) => (
-                <tr key={index}>   
+                <tr key={index}>
                   <td>{item.num}</td>
                   <td>{item.title}</td>
                   <td>{item.name}</td>

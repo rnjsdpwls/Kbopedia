@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, ImagePosition, PostBtnPosition, StyeldImages, StyledTable } from './StyledCommunity';
 import PostBtn from './PostBtn';
-import Heroes from '../../../images/Heroes_logo.png'
-import Dinos from '../../../images/Dinos_logo.png'
-import Bears from '../../../images/Bears_logo.png'
-import Eagles from '../../../images/Eagles_logo.png'
-import Giants from '../../../images/Giants_logo.png'
-import Landers from '../../../images/Landers_logo.png'
-import Lions from '../../../images/Lions_logo.png'
-import Tigers from '../../../images/Tigers_logo.png'
-import Twins from '../../../images/Twins_logo.png'
-import Wiz from '../../../images/Wiz_logo.png'
+import Heroes from '../../../images/teamLogo/Heroes_logo.png';
+import Dinos from '../../../images/teamLogo/Dinos_logo.png'
+import Bears from '../../../images/teamLogo/Bears_logo.png'
+import Eagles from '../../../images/teamLogo/Eagles_logo.png'
+import Giants from '../../../images/teamLogo/Giants_logo.png'
+import Landers from '../../../images/teamLogo/Landers_logo.png'
+import Lions from '../../../images/teamLogo/Lions_logo.png'
+import Tigers from '../../../images/teamLogo/Tigers_logo.png'
+import Twins from '../../../images/teamLogo/Twins_logo.png'
+import Wiz from '../../../images/teamLogo/Wiz_logo.png'
 import { Link } from 'react-router-dom';
 
 // 데이터의 타입을 정의한 인터페이스
@@ -51,7 +51,7 @@ export default function Community() {
   return (
     <div>
       <Container>
-      <ImagePosition>
+        <ImagePosition>
           <Link to="/Heroes">
             <StyeldImages src={Heroes} alt='키움로고'></StyeldImages>
           </Link>

@@ -29,7 +29,7 @@ export default function Posting() {
             {/* <StyledList>
                 <li>{headers}</li>
             </StyledList> */}
-            <CreateTitle/>
+            <CreateTitle />
             <SaveBtn label="등록하기"></SaveBtn>
         </div>
     )
