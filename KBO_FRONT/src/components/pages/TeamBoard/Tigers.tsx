@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, ImagePosition, PostBtnPosition, StyeldImages, StyledTable } from '../CommunityPage/StyledCommunity';
 import axios from 'axios';
 import PostBtn from '../CommunityPage/PostBtn';
-import Bears from '../../../images/Bears_logo.png'
+import Tigers from '../../../images/Tigers_logo.png'
 // 데이터의 타입을 정의한 인터페이스
 interface DataItem {
   num: number;
@@ -18,7 +18,7 @@ export default function Community() {
   const [data, setData] = useState<DataItem[]>([]);
   useEffect(() => {
     // 데이터를 불러오는 부분
-    axios.get('http://localhost:3001/all/bears')
+    axios.get('http://localhost:3001/all/tigers')
       .then((response) => {
         setData(response.data);
         setLoading(false); // 데이터 로딩이 완료되면 로딩 상태를 false로 변경
@@ -38,7 +38,7 @@ export default function Community() {
       <Container>
 
         <ImagePosition>
-          <StyeldImages src={Bears} alt='두산로고'></StyeldImages>
+          <StyeldImages src={Tigers} alt='기아로고'></StyeldImages>
         </ImagePosition>
         <StyledTable>
           <thead>
