@@ -3,7 +3,7 @@ import './Schedule.css';
 import { Container } from './StyledSchedule';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // import ResultPage from './ResultPage/ResultPicture';
-interface GameInfo {
+interface GameInfo  {
   date: string;
   time: string;
   team1: string;

@@ -4,6 +4,7 @@ import Posting from "./components/pages/Posting/Posting";
 import Header from "./components/Header/Header";
 import MainPage from "./components/pages/Main/MainPage";
 import Post_Demo from "./components/pages/Posting/Post_Demo";
+import Schedule from "./components/pages/Schedule/Schedule";
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<MainPage/>}></Route>
         <Route path="/Community" element={<Community/>}></Route>
         <Route path="/Posting" element={<Posting/>}></Route>
-        <Route path="/Post_Demo" element={<Post_Demo/>}></Route>
+        <Route path="/Schedule" element={<Schedule/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>
