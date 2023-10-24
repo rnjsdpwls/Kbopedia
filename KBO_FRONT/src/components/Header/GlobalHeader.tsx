@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import './GlobalHeader.css';
+import Login from '../pages/login/Login';
 
-interface BtnContainerProps {
-  onSignUpClick: () => void;
-  onLoginClick: () => void;
-}
 
-const GlobalHeader = ({ onSignUpClick, onLoginClick }: BtnContainerProps) => {
+const GlobalHeader = () => {
   return (
     <>
       <div className='headContainer'>
@@ -17,8 +14,8 @@ const GlobalHeader = ({ onSignUpClick, onLoginClick }: BtnContainerProps) => {
           </span>
         </Link>
         <span className='BtnContainer'>
-          <button className='btnSignup' onClick={onSignUpClick}>Sign Up</button>
-          <button className='btnLogin' onClick={onLoginClick}>Login</button>
+          <Link to="/Signup"><button className='btnSignup'>Signup</button></Link>
+          <Link to="/Login"><button className='btnLogin'>Login</button></Link>
         </span>
       </div>
     </>
@@ -26,4 +23,3 @@ const GlobalHeader = ({ onSignUpClick, onLoginClick }: BtnContainerProps) => {
 }
 
 export default GlobalHeader;
-export type { BtnContainerProps }; 

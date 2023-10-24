@@ -28,24 +28,17 @@ export default function Community() {
   const [data, setData] = useState<DataItem[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/heroes')
+    // 데이터를 불러오는 부분
+    axios.get('http://localhost:3001/all')
       .then((response) => {
-        // const allData: { [key: string]: DataItem[] } = response.data.all;
-
-        // const allTeamsData: DataItem[] = Object.values(allData).reduce((acc, teamData) => {
-        //   return acc.concat(teamData);
-        // }, []);
-
-        // setData(allTeamsData);
         setData(response.data);
-        setLoading(false);
+        setLoading(false); // 데이터 로딩이 완료되면 로딩 상태를 false로 변경
       })
       .catch((error) => {
         console.error('데이터를 불러오는 중 오류 발생: ' + error);
-        setLoading(false);
+        setLoading(false); // 오류 발생 시에도 로딩 상태를 false로 변경
       });
   }, []);
-
   const header: string[] = ["번호", "제목", "글쓴이", "등록일", "조회"];
 
   return (
