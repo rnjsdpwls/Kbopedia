@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 
 export const TeamName = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
-  text-align: center;
   color: #5c9b57;
   font-size: 90px;
 `;
 
 export const StyledImage = styled.img`
+  display: flex;
   margin-top: 80px;
   width: 470px;
   height: 300px;

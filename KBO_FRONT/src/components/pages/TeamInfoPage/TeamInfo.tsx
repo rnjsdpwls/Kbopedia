@@ -10,7 +10,7 @@ import Landers from '../../../images/teamLogo/Landers_logo.png'
 import Lions from '../../../images/teamLogo/Lions_logo.png'
 import Tigers from '../../../images/teamLogo/Tigers_logo.png'
 import Twins from '../../../images/teamLogo/Twins_logo.png'
-import Wiz from '../../../images/teamLogo/Wiz_logo.png'
+import Wiz from '../../../images/teamLogo/Wiz_logo.png';
 
 type TeamData = {
   id: number;
