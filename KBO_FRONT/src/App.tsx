@@ -4,10 +4,8 @@ import Community from "./components/pages/CommunityPage/Community";
 import Login from "./components/pages/login/Login";
 import Signup from "./components/pages/signup/SignupId";
 import Posting from "./components/pages/Posting/Posting";
-// import Post_Demo from "./components/pages/Posting/Post_Demo";
 import Bears from "./components/pages/TeamBoard/Bears";
 import Heroes from "./components/pages/TeamBoard/Heroes";
-import Create_Demo from "./components/pages/Posting/Create_Demo";
 import Dinos from "./components/pages/TeamBoard/Dinos";
 import Landers from "./components/pages/TeamBoard/Landers";
 import Twins from "./components/pages/TeamBoard/Twins";
@@ -17,7 +15,8 @@ import Lions from "./components/pages/TeamBoard/Lions";
 import Eagles from "./components/pages/TeamBoard/Eagles";
 import Wiz from "./components/pages/TeamBoard/Wiz";
 import MainPage from './components/pages/MainPage/MainPage';
-import TeamInfo from './components/pages/TeamInfoPage/TeamInfo';
+import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
+import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Signup" element={<Signup />}></Route>
         <Route path="/Posting" element={<Posting />}></Route>
-        {/* <Route path="/Post_Demo" element={<Post_Demo/>}></Route> */}
         <Route path="/Heroes" element={<Heroes />}></Route>
         <Route path="/Bears" element={<Bears />}></Route>
         <Route path="/Dinos" element={<Dinos />}></Route>
@@ -40,8 +38,8 @@ function App() {
         <Route path="/Lions" element={<Lions />}></Route>
         <Route path="/Eagles" element={<Eagles />}></Route>
         <Route path="/Wiz" element={<Wiz />}></Route>
-        <Route path="/Create_Demo" element={<Create_Demo />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
+        <Route path="/TeamItems" element={<TeamItems newId={1} />} />
       </Routes>
     </div >
   );
