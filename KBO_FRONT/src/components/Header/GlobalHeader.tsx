@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import './GlobalHeader.css';
-import Login from '../pages/login/Login';
 
 
 const GlobalHeader = () => {
