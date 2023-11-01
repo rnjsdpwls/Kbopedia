@@ -11,6 +11,7 @@ import Lions from '../../../images/teamLogo/Lions_logo.png'
 import Tigers from '../../../images/teamLogo/Tigers_logo.png'
 import Twins from '../../../images/teamLogo/Twins_logo.png'
 import Wiz from '../../../images/teamLogo/Wiz_logo.png';
+import TeamInfoMain from './TeamInfoMain';
 
 type TeamData = {
   id: number;
@@ -39,10 +40,11 @@ function TeamInfo({ newId }: Props) {
 
   return (
     <div>
-      <TeamName>
+      <TeamInfoMain newId={1} />
+      {/* <TeamName>
         {teamData.teamName}
-      </TeamName>
-      <Container>
+      </TeamName> */}
+      {/* <Container>
         <LogoImagePosition>
           <StyledImages src={Heroes} alt='키움로고' onClick={() => handleTeamClick(1)} />
           <StyledImages src={Twins} alt='엘지로고' onClick={() => handleTeamClick(2)} />
@@ -67,7 +69,7 @@ function TeamInfo({ newId }: Props) {
           <LineSpacing />
           설명: {teamData.description}
         </StyledTeamDetail>
-      </Container>
+      </Container> */}
     </div>
   );
 };

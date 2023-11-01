@@ -8,6 +8,7 @@ export const TeamName = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  margin-bottom: 30px;
   color: #5c9b57;
   font-size: 90px;
 `;
@@ -41,4 +42,5 @@ export const StyledImages = styled.img`
   height: 60px;
   padding-top: 6px;
   padding-bottom: 6px;
+  cursor: pointer;
 `;

@@ -46,20 +46,6 @@ const TeamMenu = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
         <h1 className='team-menu-heading'>구단</h1>
-        <div className={`team-dropdown-menu ${open ? 'active' : 'inactive'}`}>
-          <h3 className='team-dropdown-heading'>
-            구단
-          </h3>
-          <ul>
-            <DropdownItem text={'두산 베어스'} />
-            <DropdownItem text={'롯데 자이언츠'} />
-            <DropdownItem text={'KIA 타이거즈'} />
-            <DropdownItem text={'삼성 라이온즈'} />
-            <DropdownItem text={'한화 이글스'} />
-            <DropdownItem text={'KT 위즈'} />
-            <DropdownItem text={'LG 트윈스'} />
-          </ul>
-        </div>
         <div className="team-menu-trigger" >
           <img src={ball} alt='ballBtn' />
         </div>

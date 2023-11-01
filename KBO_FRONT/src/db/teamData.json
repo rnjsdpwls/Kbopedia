@@ -8,7 +8,8 @@
       "coach": "홍원기",
       "foundingYear": "2008년",
       "description": "키움 히어로즈는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Heroes_logo.png"
+      "logo": "../images/Heroes_logo.png",
+      "record": "-"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "coach": "염경엽",
       "foundingYear": "1990년",
       "description": "LG 트윈스는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Twins_logo.png"
+      "logo": "../images/Twins_logo.png",
+      "record": "2회 (1990, 1994)"
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "coach": "이승엽",
       "foundingYear": "1982년",
       "description": "두산 베어스는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Bears_logo.png"
+      "logo": "../images/Bears_logo.png",
+      "record": "6회 (1982, 1995, 2001, 2015, 2016, 2019)"
     },
     {
       "id": 4,
@@ -38,7 +41,8 @@
       "coach": "래리 서튼",
       "foundingYear": "1982년",
       "description": "롯데 자이언츠",
-      "logo": "../images/Giants_logo.png"
+      "logo": "../images/Giants_logo.png",
+      "record": "2회 (1984, 1992)"
     },
     {
       "id": 5,
@@ -48,7 +52,8 @@
       "coach": "강인권",
       "foundingYear": "2011년",
       "description": "NC 다이노스는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Dinos_logo.png"
+      "logo": "../images/Dinos_logo.png",
+      "record": "1회 (2020)"
     },
     {
       "id": 6,
@@ -58,7 +63,8 @@
       "coach": "이강철",
       "foundingYear": "2013년",
       "description": "KT 위즈는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Wiz_logo.png"
+      "logo": "../images/Wiz_logo.png",
+      "record": "1회 (2021)"
     },
     {
       "id": 7,
@@ -68,7 +74,8 @@
       "coach": "김종국",
       "foundingYear": "2001년",
       "description": "KIA 타이거즈는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Tigers_logo.png"
+      "logo": "../images/Tigers_logo.png",
+      "record": "11회 (1983, 1986~1989, 1991, 1993, 1996, 1997, 2009, 2017)"
     },
 
     {
@@ -79,7 +86,8 @@
       "coach": "박진만",
       "foundingYear": "1982년",
       "description": "삼성 라이온즈는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Lions_logo.png"
+      "logo": "../images/Lions_logo.png",
+      "record": "8회 (1985, 2002, 2005, 2006, 2011~2014)"
     },
     {
       "id": 9,
@@ -89,7 +97,8 @@
       "coach": "최원호",
       "foundingYear": "1986년",
       "description": "한화 이글스는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Eagles_logo.png"
+      "logo": "../images/Eagles_logo.png",
+      "record": "1회 (1999)"
     },
     {
       "id": 10,
@@ -99,7 +108,8 @@
       "coach": "김원형",
       "foundingYear": "2021년",
       "description": "SSG 랜더스는 KBO 리그의 한 팀입니다. UPLOAD SOON",
-      "logo": "../images/Landers_logo.png"
+      "logo": "../images/Landers_logo.png",
+      "record": "5회 (2007, 2008, 2010, 2018, 2022)"
     }
   ]
 }
