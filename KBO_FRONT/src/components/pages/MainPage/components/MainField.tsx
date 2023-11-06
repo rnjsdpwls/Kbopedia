@@ -14,7 +14,7 @@ const MainField = () => {
         <Link to="/Community"> <CommunityMenu /> </Link>
         <RecordMenu />
         <Link to="/TeamInfo"><TeamMenu /></Link>
-        <DictMainMenu />
+        <Link to="/Dict"> <DictMainMenu /> </Link>
       </div>
     </div >
   );

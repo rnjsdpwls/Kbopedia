@@ -11,7 +11,6 @@ import Lions from '../../../images/teamLogo/Lions_logo.png'
 import Tigers from '../../../images/teamLogo/Tigers_logo.png'
 import Twins from '../../../images/teamLogo/Twins_logo.png'
 import Wiz from '../../../images/teamLogo/Wiz_logo.png';
-import { useParams } from 'react-router-dom';
 
 type TeamData = {
   id: number;

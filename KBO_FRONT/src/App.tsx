@@ -17,6 +17,7 @@ import Wiz from "./components/pages/TeamBoard/Wiz";
 import MainPage from './components/pages/MainPage/MainPage';
 import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
 import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
+import Dict from "./components/pages/DictPage/Dict";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/Wiz" element={<Wiz />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems" element={<TeamItems newId={1} />} />
+        <Route path="/Dict" element={<Dict />}></Route>
       </Routes>
     </div >
   );
