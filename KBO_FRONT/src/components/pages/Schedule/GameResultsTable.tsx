@@ -1,8 +1,9 @@
 import React from 'react';
-//import './GameResultsTable.css';
+
 
 function GameResultsTable() {
   return (
+
 
 
 <div className="centered" style={{ position: 'relative', top: '60px', margin: '0 auto', width: '1300px', marginTop: '200px' }}>
@@ -72,20 +73,7 @@ function GameResultsTable() {
   </div>
 
   <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
-</div>
-  
-
-
- 
-
-
-
-  
-
-  
-
-
-     
+</div>    
   );
   }
   
