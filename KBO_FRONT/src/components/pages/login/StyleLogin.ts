@@ -14,6 +14,8 @@ export const LoginForm = styled.section`
   align-items: center;
   padding: 20px;
   display: flex;
+  position : relative;
+  top : 80px;
   justify-content: center;
   align-items: center; 
 
@@ -21,19 +23,21 @@ export const LoginForm = styled.section`
 `;
 export const Loginbox = styled.form
 `
-  align-items: center;
-  width: 370px;
-  height: 300px;
-  background: #5C9B57;
-  border-radius: 30px;
+align-items: center;
+width: 450px;
+height: 370px;
+background: #5C9B57;
+border-radius: 30px;
 
 `;
 
 export const Title = styled.h1`
   margin-top: 100px;
-  font-size: 40px;
+  font-size: 50px;
   font-color: black;
   text-align: center;
+  position : relative;
+  top : 80px;
   font-family: 'KBO-Dia-Gothic_bold';
   font-weight: 100;
 
@@ -47,9 +51,9 @@ export const Inputs = styled.div`
 `;
 
 export const Input = styled.input`
-  font-size: 18px;
-  width: 270px;
-  padding: 15px;
+  font-size: 20px;
+  width: 290px;
+  padding: 20px;
   margin : 8px;
   border: none;
   border-radius: 10px;
@@ -57,13 +61,12 @@ export const Input = styled.input`
 `;
 
 export const Conditions = styled.div`
-  font-size: 15px;
+  font-size: 23px;
   text-align: center;
-  margin: 15px;
   color: #DADADA;
   position : relative;
-  top : -24px;
-  left:-79px;
+  top: -30px;
+  left:-60px;
   font-family: 'KBO-Dia-Gothic_bold';
   
 `;
@@ -71,9 +74,9 @@ export const LoginButton = styled.button`
   background-color: white;
   color: #AEAEAE;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border-radius: 30px;
-  font-size: 13px;
+  font-size: 16px;
   cursor: pointer;
   font-weight: bold;
   position : relative;
