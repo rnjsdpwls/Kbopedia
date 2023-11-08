@@ -1,7 +1,7 @@
 import React from 'react';
 //import './GameResultsTable.css';
 
-function GameResultsTable() {
+export default function Schedule() {
   return (
 
 
@@ -89,6 +89,3 @@ function GameResultsTable() {
   );
 }
 
-
-
-export default GameResultsTable;
