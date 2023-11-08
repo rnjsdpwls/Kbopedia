@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, ImagePosition, PostBtnPosition, StyeldImages, StyledTable } from '../CommunityPage/StyledCommunity';
 import axios from 'axios';
 import PostBtn from '../CommunityPage/PostBtn';
-import Heroes from '../../../images/teamLogo/Heroes_logo.png'
+import Landers from '../../../images/teamLogo/Landers_logo.png'
 // 데이터의 타입을 정의한 인터페이스
 interface DataItem {
   num: number;
@@ -16,27 +16,18 @@ interface DataItem {
 export default function Community() {
   const [loading, setLoading] = useState<boolean>(true); // 로딩 상태를 나타내는 변수
   const [data, setData] = useState<DataItem[]>([]);
-  const [heroesData, setHeroesData] = useState<DataItem[]>([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/all')
+    // 데이터를 불러오는 부분
+    axios.get('http://localhost:3001/all/landers')
       .then((response) => {
-        const allData = response.data.all;
-        if (allData) {
-          if (allData.heroes) {
-            setHeroesData(allData.heroes); // "heroes" 데이터를 가져와서 상태에 설정
-          }
-          // 다른 팀의 데이터를 여기에서 추출하고 상태에 설정
-          // 예: if (allData.bears) setOtherTeamsData(allData.bears);
-          // 다른 팀의 데이터도 위와 같이 추출 및 설정
-        }
-        setLoading(false); // 로딩 상태를 false로 변경
+        setData(response.data);
+        setLoading(false); // 데이터 로딩이 완료되면 로딩 상태를 false로 변경
       })
       .catch((error) => {
         console.error('데이터를 불러오는 중 오류 발생: ' + error);
-        setLoading(false);
+        setLoading(false); // 오류 발생 시에도 로딩 상태를 false로 변경
       });
   }, []);
-
 
   const header = ["번호", "제목", "글쓴이", "등록일", "조회"];
 
@@ -47,7 +38,7 @@ export default function Community() {
       <Container>
 
         <ImagePosition>
-          <StyeldImages src={Heroes} alt='키움로고'></StyeldImages>
+          <StyeldImages src={Landers} alt='SSG로고'></StyeldImages>
         </ImagePosition>
         <StyledTable>
           <thead>
@@ -58,15 +49,23 @@ export default function Community() {
             </tr>
           </thead>
           <tbody>
-            {heroesData.map((item, index) => (
-              <tr key={index}>
-                <td>{item.num}</td>
-                <td>{item.title}</td>
-                <td>{item.name}</td>
-                <td>{item.date}</td>
-                <td>{item.views}</td>
+            {loading ? (
+              // 데이터 로딩 중에 보여줄 내용
+              <tr>
+                <td colSpan={header.length}>로딩 중...</td>
               </tr>
-            ))}
+            ) : (
+              // 데이터가 로딩된 후에 보여줄 내용
+              data.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.num}</td>
+                  <td>{item.title}</td>
+                  <td>{item.name}</td>
+                  <td>{item.date}</td>
+                  <td>{item.views}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </StyledTable>
       </Container>
