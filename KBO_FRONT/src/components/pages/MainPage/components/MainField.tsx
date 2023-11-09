@@ -12,7 +12,8 @@ const MainField = () => {
       <img src={field} alt='field' className='fieldImage' />
       <div className='btnContainer'>
         <Link to="/Community"> <CommunityMenu /> </Link>
-        <RecordMenu />
+        <Link to="/Schedule">  <RecordMenu /> </Link>
+
         <Link to="/TeamInfo"><TeamMenu /></Link>
         <Link to="/Dict"> <DictMainMenu /> </Link>
       </div>
