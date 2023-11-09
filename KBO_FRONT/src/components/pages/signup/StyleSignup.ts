@@ -1,14 +1,4 @@
-// import styled from 'styled-components';
-import styled, { createGlobalStyle } from 'styled-components';
-
-export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'KBO-Dia-Gothic_bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
-    font-weight: normal;
-  }
-`;
-
+import styled from 'styled-components';
 
 export const LoginForm = styled.section`
 
@@ -16,7 +6,7 @@ export const LoginForm = styled.section`
   padding: 20px;
   display: flex;
   position : relative;
-  top : 80px;
+  top : 50px;
   justify-content: center;
   align-items: center; 
 
@@ -36,10 +26,7 @@ export const Title = styled.h1`
   margin-top: 100px;
   font-size: 50px;
   color: black;
-  position : relative;
-  top : 80px;
   text-align: center;
-  font-family: 'KBO-Dia-Gothic_bold';
   font-weight: 50;
 
 `;
@@ -52,10 +39,12 @@ export const Inputs = styled.div`
 `;
 
 export const Sign = styled.div`
-margin-top : 55px;
+margin-top : 50px;
+text-align: center;
 color : white;
 font-size: 30px;
-font-family: 'KBO-Dia-Gothic_bold'
+position : relative;
+
 `;
 
 export const Input = styled.input`
@@ -64,7 +53,23 @@ export const Input = styled.input`
   padding: 20px;
   border: none;
   border-radius: 10px;
-  font-family: 'KBO-Dia-Gothic_bold';
+
+`;
+
+export const KakaoLogin = styled.div`
+
+position : relative;
+top : 90px;
+left:330px;
+
+`;
+
+export const StyledKaKao = styled.img`
+
+position : relative;
+top : 90px;
+left:330px;
+
 `;
 
 export const Conditions = styled.div`
@@ -72,9 +77,9 @@ export const Conditions = styled.div`
   text-align: center;
   color: #DADADA;
   position : relative;
-  top : -5px;
-  left:-65px;
-  font-family: 'KBO-Dia-Gothic_bold';
+  top : 10px;
+  left:-50px;
+
   
 `;
 
@@ -88,9 +93,9 @@ export const NextButton = styled.button`
   cursor: pointer;
   font-weight: bold;
   position : relative;
-  top : 40px;
-  left:120px;
-  font-family: 'KBO-Dia-Gothic_bold';
+  top : 90px;
+  left:330px;
+
 
 `;
 
@@ -104,9 +109,9 @@ export const NextButtonPw = styled.button`
   cursor: pointer;
   font-weight: bold;
   position : relative;
-  top : -11px;
-  left:120px;
-  font-family: 'KBO-Dia-Gothic_bold';
+  top : 75px;
+  left:330px;
+
 
 `;
 
@@ -135,6 +140,6 @@ background-color: white;
   position : relative;
   top : 160px;
   left : 155px;
-  font-family: 'KBO-Dia-Gothic_bold';
+
 
 `;

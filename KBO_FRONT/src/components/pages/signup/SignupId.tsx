@@ -1,5 +1,6 @@
-import {GlobalStyle,LoginForm,Title,Sign,Inputs,Input,NextButton,Conditions,NextButtonPw, Loginbox, SignSuccess,SignLoginButton} from "./StyleSignup"
-import { Link} from "react-router-dom";
+import {LoginForm,Title,Sign,Inputs,Input,KakaoLogin,StyledKaKao,NextButton,Conditions,NextButtonPw, Loginbox, SignSuccess,SignLoginButton} from "./StyleSignup"
+import KaKao from 'KBO_FRONT/src/images/kakao_login_large_narrow.png';
+import {Link} from "react-router-dom";
 import React, { useState } from 'react';
 
 
@@ -25,8 +26,6 @@ const Signup: React.FC = () => {
    
    
     <div>
-    
-      <GlobalStyle/>
       <Title>
         Create your account!</Title>
       <LoginForm>
@@ -97,7 +96,17 @@ const Signup: React.FC = () => {
     )}
 
       </LoginForm>
+
+       <KakaoLogin> 
+
+       <Link to="/">
+            <StyledKaKao src={KaKao} alt='카카오톡 로그인'></StyledKaKao>
+       </Link>
+    
+       </KakaoLogin>
+
     </div>
+
   );
 }
 
