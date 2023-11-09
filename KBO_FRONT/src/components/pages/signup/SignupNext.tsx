@@ -1,10 +1,9 @@
-import {GlobalStyle,LoginForm,Loginbox,SignSuccess,SignLoginButton,Title} from "./StyleSignup"
+import {LoginForm,Loginbox,SignSuccess,SignLoginButton,Title} from "./StyleSignup"
 import { Link} from "react-router-dom";
 
 export default function LoginNext() {
   return (
     <div>
-      <GlobalStyle/>
       <Title> Create your account!</Title>
       <LoginForm>
        <Loginbox>

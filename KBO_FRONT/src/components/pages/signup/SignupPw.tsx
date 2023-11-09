@@ -1,9 +1,9 @@
-import {GlobalStyle,Conditions,NextButtonPw,LoginForm,Title,Sign,Inputs,Input,Loginbox} from "./StyleSignup"
+import {Conditions,NextButtonPw,LoginForm,Title,Sign,Inputs,Input,Loginbox} from "./StyleSignup"
 
 export default function Signup() {
   return (
     <div>
-      <GlobalStyle/>
+   
       <Title> Create your account!</Title>
       <LoginForm>
        <Loginbox>
