@@ -1,9 +1,8 @@
-import {GlobalStyle,LoginForm,Loginbox,LogSuccess,Title} from "./StyleLogin"
+import {LoginForm,Loginbox,LogSuccess,Title} from "./StyleLogin"
 
 export default function LoginNext() {
   return (
     <div>
-      <GlobalStyle/>
       <Title> <a href="/Login">Login</a> </Title>
       <LoginForm>
       <Loginbox>
