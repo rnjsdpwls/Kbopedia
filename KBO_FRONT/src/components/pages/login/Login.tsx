@@ -1,5 +1,5 @@
 import React,{useState, FormEvent} from 'react';
-import {GlobalStyle,LoginForm,Title,Inputs,Input,Conditions,LoginButton,Loginbox} from "./StyleLogin"
+import {LoginForm,Title,Inputs,Input,Conditions,LoginButton,Loginbox} from "./StyleLogin"
 import { useNavigate} from "react-router-dom";
 
 export default function Login() {
@@ -25,8 +25,8 @@ export default function Login() {
   
   return (
     <div>
-      <GlobalStyle/>
-      <Title> <a href="/Login">login</a> </Title>
+
+      <Title> <a href="/Login">Login</a> </Title>
       <LoginForm>
        <Loginbox>
         <form onSubmit={handleSubmit}>
