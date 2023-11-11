@@ -7,7 +7,7 @@ export const LoginForm = styled.section`
   padding: 20px;
   display: flex;
   position : relative;
-  top : 80px;
+  top : 50px;
   justify-content: center;
   align-items: center; 
 
@@ -28,8 +28,6 @@ export const Title = styled.h1`
   font-size: 50px;
   font-color: black;
   text-align: center;
-  position : relative;
-  top : 80px;
   font-weight: 100px;
 
 `;
