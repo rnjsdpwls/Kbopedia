@@ -3,6 +3,7 @@ import GlobalHeader from './components/Header/GlobalHeader';
 import Community from "./components/pages/CommunityPage/Community";
 import Login from "./components/pages/login/Login";
 import Signup from "./components/pages/signup/SignupId";
+import Quiz from "./components/pages/Quiz/Quiz";
 import Posting from "./components/pages/Posting/Posting";
 import Bears from "./components/pages/TeamBoard/Bears";
 import Heroes from "./components/pages/TeamBoard/Heroes";
