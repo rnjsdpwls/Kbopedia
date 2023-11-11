@@ -53,23 +53,17 @@ export const Input = styled.input`
   padding: 20px;
   border: none;
   border-radius: 10px;
-
 `;
 
 export const KakaoLogin = styled.div`
-
 position : relative;
-top : 90px;
-left:330px;
-
+top: -40px;
+left: 100px;
 `;
 
 export const StyledKaKao = styled.img`
-
-position : relative;
-top : 90px;
-left:330px;
-
+width: 260px;
+height:60px;
 `;
 
 export const Conditions = styled.div`
@@ -79,8 +73,6 @@ export const Conditions = styled.div`
   position : relative;
   top : 10px;
   left:-50px;
-
-  
 `;
 
 export const NextButton = styled.button`
@@ -95,8 +87,6 @@ export const NextButton = styled.button`
   position : relative;
   top : 90px;
   left:330px;
-
-
 `;
 
 export const NextButtonPw = styled.button`
@@ -111,8 +101,6 @@ export const NextButtonPw = styled.button`
   position : relative;
   top : 75px;
   left:330px;
-
-
 `;
 
 
@@ -124,7 +112,7 @@ color : white;
 align-items: center;
 position : relative;
 top : 100px;
-
+left: 90px;
 `;
 
 export const SignLoginButton = styled.h2`
@@ -132,14 +120,12 @@ export const SignLoginButton = styled.h2`
 background-color: white;
   color: #AEAEAE;
   padding: 10px 20px;
-  width: 90px;
+  width: 125px;
   border-radius: 30px;
   font-size: 18px;
   cursor: pointer;
   font-weight: bold;
   position : relative;
-  top : 160px;
-  left : 155px;
-
-
+  top : 150px;
+  left: 160px;
 `;
