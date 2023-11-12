@@ -7,6 +7,7 @@ function GameResultsTable() {
 
 
 <div className="centered" style={{ position: 'relative', top: '60px', margin: '0 auto', width: '1300px', marginTop: '200px' }}>
+    
     <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
     
     <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginRight: "-3px" }}>
