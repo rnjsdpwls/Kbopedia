@@ -18,6 +18,7 @@ import MainPage from './components/pages/MainPage/MainPage';
 import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
 import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
+import GameResultsTable from "./components/pages/Schedule/GameResultsTable";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems" element={<TeamItems newId={1} />} />
         <Route path="/Dict" element={<Dict />}></Route>
+        <Route path="/Schedule" element={<GameResultsTable/>}></Route>
       </Routes>
     </div >
   );
