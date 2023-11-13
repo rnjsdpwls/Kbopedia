@@ -19,8 +19,7 @@ export const QuizBox = styled.div`
 `;
 
 export const QuizText = styled.div`
-  font-family: 'KBO Dia Gothic';
-  font-style: normal;
+  
   font-weight: 700;
   font-size: 96px;
   line-height: 96px;
@@ -29,8 +28,6 @@ export const QuizText = styled.div`
 `;
 
 export const QuizOption = styled.div`
-  font-family: 'KBO Dia Gothic';
-  font-style: normal;
   font-weight: 500;
   font-size: 48px;
   line-height: 48px;
