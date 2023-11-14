@@ -30,6 +30,7 @@ function App() {
         <Route path="/Community" element={<Community />}></Route>
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Signup" element={<Signup />}></Route>
+        <Route path="/Quiz" element={<Quiz />}></Route>
         <Route path="/Posting" element={<Posting />}></Route>
         <Route path="/Heroes" element={<Heroes />}></Route>
         <Route path="/Bears" element={<Bears />}></Route>
