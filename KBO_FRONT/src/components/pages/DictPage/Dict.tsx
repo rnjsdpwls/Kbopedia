@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import { SearchInput, InputForm, BtnSearch, InputFormContainer } from "./StyledDict";
 import SearchedKeywords from "./SearchedKeywords";
 
@@ -17,7 +17,7 @@ export default function Dict() {
           type="text" />
         <BtnSearch>검색</BtnSearch>
       </SearchInput>
-      <SearchedKeywords />
+      <SearchedKeywords searchValue={value} />
     </div >
   );
 }
