@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import{Container,AnswerButton,QuizAnswer,QuizBox,QuizTitle,QuizText,QuizOption} from "./StyleQuiz"
-import {Link} from "react-router-dom";
+
+//////////데이터 직접 코드 작성///////////
+import React, { useState,useEffect } from 'react';
+import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizOption } from "./StyleQuiz";
+
 
 interface Quiz {
   question: string;
@@ -8,7 +10,8 @@ interface Quiz {
   correctAnswer: string;
 }
 
-const QuizPage: React.FC = () => {
+export default function Quiz() {
+
   const quizzes: Quiz[] = [
     {
       question: 'Q. 다음 중 야구 용어가 아닌 것은?',
@@ -24,15 +27,27 @@ const QuizPage: React.FC = () => {
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
-
   };
+
+  const handleConfirm = () => {
+    setSelectedAnswer(null); 
+  };
+
+  const handleQuizLinkClick = () => {
+    window.location.reload();
+  };
+
 
   return (
     <Container>
-   <QuizTitle><a href='/Quiz'>Quiz</a></QuizTitle>
-     <QuizBox>
-         <QuizText>{currentQuiz.question}</QuizText>
-     </QuizBox>
+      <QuizTitle 
+         onClick={handleQuizLinkClick}
+         style={{cursor: 'pointer'}}
+        >Quiz</QuizTitle>
+      
+      <QuizBox>
+        {currentQuiz.question}
+      </QuizBox>
 
       <ul>
         {currentQuiz.options.map((option, index) => (
@@ -46,60 +61,22 @@ const QuizPage: React.FC = () => {
         ))}
       </ul>
 
-     
-
       {selectedAnswer && (
-  <QuizAnswer style={{ backgroundColor: selectedAnswer !== currentQuiz.correctAnswer ? '#A64D4D' : '#0D3F6A' }}>
-    {selectedAnswer === currentQuiz.correctAnswer ? (
-      <>
-        <p>정답입니다!</p>
-        <AnswerButton>
-          <Link to="/Quiz">확인</Link>
-        </AnswerButton>
-      </>
-    ) : (
-      <>
-        <p>틀렸습니다.</p>
-        <AnswerButton>
-          <Link to="/Quiz">확인</Link>
-        </AnswerButton>
-      </>
-    )}
-  </QuizAnswer>
-)}
-
+        <QuizAnswer style={{ backgroundColor: selectedAnswer !== currentQuiz.correctAnswer ? '#A64D4D' : '#0D3F6A' }}>
+          {selectedAnswer === currentQuiz.correctAnswer ? (
+            <>
+              <p>정답입니다!</p>
+            </>
+          ) : (
+            <>
+              <p>틀렸습니다.</p>
+            </>
+          )}
+          <AnswerButton onClick={handleConfirm}>
+            확인
+          </AnswerButton>
+        </QuizAnswer>
+      )}
     </Container>
   );
 };
-
-export default QuizPage;
-
-
-
-// import{Container,Rectangle,QuizBox,QuizTitle,QuizText,QuizOption} from "./StyleQuiz"
-
-// export default function Quiz() {
-//     return (
-//       <Container>
-
-//         <QuizTitle>QUIZ</QuizTitle>
-
-//         <QuizBox>        
-//         <QuizText> Q. 다음 중 야구 용어가 아닌 것은?</QuizText>
-//         </QuizBox>
-
-//         <Rectangle/>
-//            <QuizOption>오프사이드</QuizOption>
-//         <Rectangle/>
-//            <QuizOption>노히트노런</QuizOption>
-//         <Rectangle/>
-//            <QuizOption>무사만루</QuizOption>
-//         <Rectangle/>
-//            <QuizOption>삼자범퇴</QuizOption>
-
-        
-//       </Container>
-
-//     );
-//   };
-  
