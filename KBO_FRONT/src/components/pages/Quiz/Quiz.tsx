@@ -1,4 +1,3 @@
-
 //////////데이터 직접 코드 작성///////////
 import React, { useState,useEffect } from 'react';
 import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizOption } from "./StyleQuiz";
