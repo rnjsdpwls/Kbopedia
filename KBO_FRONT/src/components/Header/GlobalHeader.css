@@ -1,0 +1,23 @@
+.headContainer {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: #61a063;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  z-index: 1;
+  border-bottom: 2px solid rgb(36, 36, 36);
+}
+
+.btnLogin,
+.btnSignup {
+  font-size: 17px;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.btnLogin:hover,
+.btnSignup:hover {
+  color: #3a7934;
+}

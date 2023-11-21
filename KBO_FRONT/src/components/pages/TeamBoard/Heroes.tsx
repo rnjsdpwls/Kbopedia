@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, ImagePosition, PostBtnPosition, StyeldImages, StyledTable } from '../CommunityPage/StyledCommunity';
 import axios from 'axios';
 import PostBtn from '../CommunityPage/PostBtn';
-import Heroes from '../../../images/Heroes_logo.png'
+import Heroes from '../../../images/teamLogo/Heroes_logo.png'
 // 데이터의 타입을 정의한 인터페이스
 interface DataItem {
   num: number;
@@ -58,16 +58,16 @@ export default function Community() {
             </tr>
           </thead>
           <tbody>
-                {heroesData.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.num}</td>
-                    <td>{item.title}</td>
-                    <td>{item.name}</td>
-                    <td>{item.date}</td>
-                    <td>{item.views}</td>
-                  </tr>
-                ))}
-              </tbody>
+            {heroesData.map((item, index) => (
+              <tr key={index}>
+                <td>{item.num}</td>
+                <td>{item.title}</td>
+                <td>{item.name}</td>
+                <td>{item.date}</td>
+                <td>{item.views}</td>
+              </tr>
+            ))}
+          </tbody>
         </StyledTable>
       </Container>
       <PostBtnPosition>

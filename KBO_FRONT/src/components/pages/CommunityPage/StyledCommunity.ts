@@ -12,13 +12,14 @@ export const StyledTable = styled.table`
     margin-right:auto;
     @media (min-width: 1000px) {
     }
-    tr {
+    tr {git
         border-top: 3px solid #5C9B57;
         text-align: center;
         font-size:28px;
         line-height:60px;
     }
     td{
+        
         font-family: 'KBO-Dia-Gothic_light';
         font-size:16px;
     } 
