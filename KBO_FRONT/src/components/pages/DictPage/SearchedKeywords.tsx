@@ -1,10 +1,10 @@
-import { BtnWords, Container } from "./StyledSearchedKeywords";
+import { Container, ItemDescription, ItemTerm, ItemTermContainer, List } from "./StyledSearchedKeywords";
 import { useEffect, useState } from "react";
+import termsDummy from '../../../db/termsData.json';
 
-interface DataItem {
-  record: string;
-  recordEnAbbr: string;
-  recordEn: string;
+type TermsData = {
+  id: number;
+  term: string;
   description: string;
 }
 
@@ -13,38 +13,26 @@ interface SearchedKeywordsProps {
 }
 
 export default function SearchedKeywords({ searchValue }: SearchedKeywordsProps) {
-  const [data, setData] = useState<DataItem[]>([]);
-  useEffect(() => {
-    fetch("http://localhost:3001/api/data", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        setData(result);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  const [data, setData] = useState<TermsData[]>([]);
 
-  const filteredData = data.filter((item) =>
-    item.record.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  useEffect(() => {
+    const filteredData = termsDummy.dict.filter((item) =>
+      item.term.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setData(filteredData);
+  }, [searchValue]);
 
   return (
     <Container>
       <ul>
-        {filteredData.map((item, index) => (
-          <li key={index}>
-            <span>{item.record} </span>
-            <span>{item.recordEnAbbr} </span>
-            <span>{item.recordEn} </span>
-            <span>{item.description} </span>
-          </li>
+        {data.map((item, index) => (
+          <List key={index}>
+            <ItemTermContainer>
+              <ItemTerm>{item.term}</ItemTerm>
+              <ItemDescription>{item.description}</ItemDescription>
+            </ItemTermContainer>
+
+          </List>
         ))}
       </ul>
     </Container>
