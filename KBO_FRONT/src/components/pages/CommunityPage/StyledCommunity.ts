@@ -12,14 +12,13 @@ export const StyledTable = styled.table`
     margin-right:auto;
     @media (min-width: 1000px) {
     }
-    tr {git
+    tr {
         border-top: 3px solid #5C9B57;
         text-align: center;
         font-size:28px;
         line-height:60px;
     }
     td{
-        
         font-family: 'KBO-Dia-Gothic_light';
         font-size:16px;
     } 
@@ -27,8 +26,8 @@ export const StyledTable = styled.table`
 
 export const StyeldImages = styled.img`
     display:block;
-    width:75px;
-    height:50px;
+    width:85px;
+    height:70px;
     padding-top:6px;
     padding-bottom:6px;
 `
@@ -49,7 +48,6 @@ export const StyledPostBtn = styled.button`
     color:#ffffff;
     width:100px;
     height:50px;
-    font-family:'KBO-Dia-Gothic_light';
     font-size:16px;
 `
 
@@ -59,3 +57,14 @@ export const PostBtnPosition = styled.div`
     margin:120px auto;
     text-align:right;
 `   
+
+export const Pagebutton = styled.button`
+
+padding: 10px;
+font-size: 20px;
+color: #5C9B57;
+position: relative;
+top: 850px;
+left: -850px;
+
+`
