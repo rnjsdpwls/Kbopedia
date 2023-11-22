@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, ImagePosition, PostBtnPosition, StyeldImages, StyledTable } from './StyledCommunity';
+import { Container, ImagePosition, PostBtnPosition, Pagebutton, StyeldImages, StyledTable } from './StyledCommunity';
 import PostBtn from './PostBtn';
 import Heroes from '../../../images/teamLogo/Heroes_logo.png';
-import Dinos from '../../../images/teamLogo/Dinos_logo.png'
-import Bears from '../../../images/teamLogo/Bears_logo.png'
-import Eagles from '../../../images/teamLogo/Eagles_logo.png'
-import Giants from '../../../images/teamLogo/Giants_logo.png'
-import Landers from '../../../images/teamLogo/Landers_logo.png'
-import Lions from '../../../images/teamLogo/Lions_logo.png'
-import Tigers from '../../../images/teamLogo/Tigers_logo.png'
-import Twins from '../../../images/teamLogo/Twins_logo.png'
-import Wiz from '../../../images/teamLogo/Wiz_logo.png'
+import Dinos from '../../../images/teamLogo/Dinos_logo.png';
+import Bears from '../../../images/teamLogo/Bears_logo.png';
+import Eagles from '../../../images/teamLogo/Eagles_logo.png';
+import Giants from '../../../images/teamLogo/Giants_logo.png';
+import Landers from '../../../images/teamLogo/Landers_logo.png';
+import Lions from '../../../images/teamLogo/Lions_logo.png';
+import Tigers from '../../../images/teamLogo/Tigers_logo.png';
+import Twins from '../../../images/teamLogo/Twins_logo.png';
+import Wiz from '../../../images/teamLogo/Wiz_logo.png';
 import { Link } from 'react-router-dom';
 
 // 데이터의 타입을 정의한 인터페이스
@@ -24,8 +24,11 @@ interface DataItem {
 }
 
 export default function Community() {
+  const ITEMS_PER_PAGE = 5;
+
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<DataItem[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   useEffect(() => {
     // 데이터를 불러오는 부분
@@ -39,12 +42,17 @@ export default function Community() {
         setLoading(false); // 오류 발생 시에도 로딩 상태를 false로 변경
       });
   }, []);
+
+  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+
   const header: string[] = ["번호", "제목", "글쓴이", "등록일", "조회"];
+
+  const paginatedData = data.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   return (
     <div>
       <Container>
-        <ImagePosition>
+      <ImagePosition>
           <Link to="/Heroes">
             <StyeldImages src={Heroes} alt='키움로고'></StyeldImages>
           </Link>
@@ -91,7 +99,7 @@ export default function Community() {
                 <td colSpan={header.length}>로딩 중...</td>
               </tr>
             ) : (
-              data.map((item, index) => (
+              paginatedData.map((item, index) => (
                 <tr key={index}>
                   <td>{item.num}</td>
                   <td>{item.title}</td>
@@ -103,7 +111,21 @@ export default function Community() {
             )}
           </tbody>
         </StyledTable>
+
+        <div>
+          {/* Display page numbers */}
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <Pagebutton
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              style={{ fontWeight: currentPage === index + 1 ? 'bold' : 'normal' }}
+            >
+              {index + 1}
+            </Pagebutton>
+          ))}
+        </div>
       </Container>
+
       <PostBtnPosition>
         <PostBtn label={"글쓰기"}></PostBtn>
       </PostBtnPosition>
