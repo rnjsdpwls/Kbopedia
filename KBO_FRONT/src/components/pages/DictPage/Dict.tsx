@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import { SearchInput, InputForm, BtnSearch, InputFormContainer } from "./StyledDict";
+import { SearchInput, InputForm, BtnSearch, DictTitle } from "./StyledDict";
 import SearchedKeywords from "./SearchedKeywords";
 
 export default function Dict() {
@@ -11,12 +11,14 @@ export default function Dict() {
 
   return (
     <div>
+      <DictTitle>KBO 리그 야구용어 기초</DictTitle>
       <SearchInput>
         <InputForm value={value}
           onChange={onChange}
           type="text" />
         <BtnSearch>검색</BtnSearch>
       </SearchInput>
+
       <SearchedKeywords searchValue={value} />
     </div >
   );
