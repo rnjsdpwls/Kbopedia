@@ -6,35 +6,39 @@ export const Container = styled.div`
 export const StyledTable = styled.table`
     border-collapse: collapse;
     font-family: 'KBO-Dia-Gothic_medium';
-
     width: 1000px;
-    margin-top: 150px;
-    margin-right:auto;
-    @media (min-width: 1000px) {
+    margin-top: 60px;
+    margin-right: auto;
+
+    th, td {
+        text-align: center; /* Center-align text within the cells */
     }
+
     tr {
-        border-top: 3px solid #5C9B57;
-        text-align: center;
-        font-size:28px;
-        line-height:60px;
+        border-bottom: 3px solid #5C9B57;
+        font-size: 28px;
+        line-height: 60px;
     }
-    td{
+
+    td {
         font-family: 'KBO-Dia-Gothic_light';
-        font-size:16px;
-    } 
+        font-size: 16px;
+        padding: 13px;
+    }
 `;
+
 
 export const StyeldImages = styled.img`
     display:block;
     width:85px;
-    height:70px;
+    height:65px;
     padding-top:6px;
     padding-bottom:6px;
 `
 
 export const ImagePosition = styled.div`
     margin-left:auto;
-    margin-top:120px;
+    margin-top:55px;
     margin-right:50px;
     @media (max-width: 600px){
         margin-left:0;
@@ -54,7 +58,7 @@ export const StyledPostBtn = styled.button`
 export const PostBtnPosition = styled.div`
     width:1100px;
     height:50px;
-    margin:120px auto;
+    margin:43px auto;
     text-align:right;
 `   
 
@@ -64,7 +68,7 @@ padding: 10px;
 font-size: 20px;
 color: #5C9B57;
 position: relative;
-top: 850px;
-left: -850px;
+top: 780px;
+left: -895px;
 
 `
