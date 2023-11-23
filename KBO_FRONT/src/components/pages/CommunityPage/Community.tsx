@@ -24,7 +24,7 @@ interface DataItem {
 }
 
 export default function Community() {
-  const ITEMS_PER_PAGE = 5;
+  const ITEMS_PER_PAGE = 6;
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<DataItem[]>([]);
