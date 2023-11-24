@@ -10,17 +10,20 @@ type TermsData = {
 
 interface SearchedKeywordsProps {
   searchValue: string;
+  termType: 'basic' | 'advanced';
 }
 
-export default function SearchedKeywords({ searchValue }: SearchedKeywordsProps) {
+export default function SearchedKeywords({ searchValue, termType }: SearchedKeywordsProps) {
   const [data, setData] = useState<TermsData[]>([]);
 
   useEffect(() => {
-    const filteredData = termsDummy.dict.filter((item) =>
+    const termData = termType === 'basic' ? termsDummy.basic_term : termsDummy.advanced_term;
+
+    const filteredData = termData.filter((item) =>
       item.term.toLowerCase().includes(searchValue.toLowerCase())
     );
     setData(filteredData);
-  }, [searchValue]);
+  }, [searchValue, termType]);
 
   return (
     <Container>
@@ -31,7 +34,6 @@ export default function SearchedKeywords({ searchValue }: SearchedKeywordsProps)
               <ItemTerm>{item.term}</ItemTerm>
               <ItemDescription>{item.description}</ItemDescription>
             </ItemTermContainer>
-
           </List>
         ))}
       </ul>
