@@ -25,6 +25,29 @@ export const InputForm = styled.input`
   }
 `;
 
+export const BtnSort = styled.button`
+  background-color: #c6dfc4;
+  position: relative;
+  border-radius: 10px;
+  width: 100px;
+  height: 35px;
+  margin: 30px 10px 0 10px;
+  transition: all 0.3s;
+  overflow: hidden;
+  &:hover {
+    color: #61a063;
+  }
+  &:hover:focus {
+    background-color: #61a063;
+    color: white;
+  }
+`;
+
+export const BtnSortContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const BtnSearch = styled.button`
   left: 10px;
   margin-left: 10px;
