@@ -13,7 +13,6 @@ const MainField = () => {
       <div className='btnContainer'>
         <Link to="/Community"> <CommunityMenu /> </Link>
         <Link to="/Schedule">  <RecordMenu /> </Link>
-
         <Link to="/TeamInfo"><TeamMenu /></Link>
         <Link to="/Dict"> <DictMainMenu /> </Link>
       </div>

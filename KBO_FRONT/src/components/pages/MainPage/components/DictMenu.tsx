@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/DictMenu.css';
 import ball from '../../../../images/ball.png';
+import { Link } from 'react-router-dom';
 
 interface DropdownItemProps {
   text: string;
@@ -49,9 +50,8 @@ const DictMenu = () => {
           용어•규칙
         </h3>
         <ul>
-          <DropdownItem text={'야구 기초 용어'} />
-          <DropdownItem text={'야구 규칙'} />
-          <DropdownItem text={'야구 퀴즈'} />
+          <DropdownItem text={'KBO 리그 기초 정보'} />
+          <Link to="/Quiz"> <DropdownItem text={'야구 퀴즈'} /></Link>
         </ul>
       </div>
       <div className="dict-menu-trigger" >
