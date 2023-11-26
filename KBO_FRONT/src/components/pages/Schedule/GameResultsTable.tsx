@@ -41,15 +41,35 @@ function GameResultsTable() {
         <div key={resultIndex}>
           <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row' }}>
             <div key={resultIndex} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.date}</p>
-              <p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.time}</p>
-              <p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
-              <p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.stadium}</p>
+              <p>{result.date}</p>
             </div>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.time}</p>
+          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
+          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.stadium}</p>
+          </div> 
+
+          <hr style={{ width: '1000px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
+
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.time}</p>
+          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
+          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.stadium}</p>
+           </div>
           </div>
         </div>
-      ))}
+
+        <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
+
+     
+
+  
+  </div> 
+ 
+ ))}
     </div>
+   
   );
 }
 
@@ -57,3 +77,7 @@ export default GameResultsTable;
 
 
 
+{/* <p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.date}</p>
+<p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.time}</p>
+<p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
+<p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.stadium}</p> */}
