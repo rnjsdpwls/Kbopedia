@@ -15,7 +15,7 @@ export const StyledTable = styled.table`
     }
 
     tr {
-        border-bottom: 3px solid #5C9B57;
+        border-top: 3px solid #5C9B57;
         font-size: 28px;
         line-height: 60px;
     }
@@ -70,5 +70,20 @@ color: #5C9B57;
 position: relative;
 top: 780px;
 left: -895px;
+`
+
+export const StyledTitle = styled.div`
+    margin:50px auto;
+    width: 50%;
+    padding : 10px;
+    border-bottom : 3px solid #5c9b57;
+`
+
+export const StyledPosts = styled.div`
+    margin: 0 auto;
+    padding : 10px;
+    width: 50%;
+    height : 250px;
+    border: 1px solid #E4E4E4;
 
 `

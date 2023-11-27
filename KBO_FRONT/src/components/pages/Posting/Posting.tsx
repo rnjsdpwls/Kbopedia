@@ -79,7 +79,7 @@ const BulletinBoard: React.FC = () => {
                         type="text"
                         name="title"
                         value={newPost.title}
-                        onChange={(e) => handleInputChange(e)}
+                        onChange={handleInputChange}
                         placeholder='제목을 입력하세요.'
                     />
                     </td>
@@ -97,7 +97,7 @@ const BulletinBoard: React.FC = () => {
                             <textarea
                                 name="content"
                                 value={newPost.content}
-                                onChange={(e) => handleInputChange(e)}
+                                onChange={handleInputChange}
                                 placeholder='내용을 입력하세요.'
                             />
                         </StyledContent>

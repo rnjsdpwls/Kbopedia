@@ -16,11 +16,13 @@ import { Link } from 'react-router-dom';
 
 // 데이터의 타입을 정의한 인터페이스
 interface DataItem {
+  id: number;
   num: number;
   title: string;
   name: string;
-  date: string;
-  views: number;
+  created_at : string;
+  updated_at : string;
+  count: number;
 }
 
 export default function Community() {
@@ -29,10 +31,33 @@ export default function Community() {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<DataItem[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  
+  const increaseCount = async (postId:number):Promise<void> => {
+    try {
+      const response = await axios.get<DataItem>(`http://127.0.0.1:8000/api/posts/${postId}/increase_count/`);
+      // 증가된 count를 받아올 수 있습니다.
+      console.log(`Count increased for post ${postId}: ${response.data.count}`);
+
+      setData((prevData)=>{
+        return prevData.map((item)=>{
+          if(item.id === postId) {
+            return {
+              ... item,
+              count : response.data.count,
+            };
+          }
+          return item;
+        })
+      })
+
+    } catch (error) {
+      console.error('Error increasing count:', error);
+    }
+  };
 
   useEffect(() => {
     // 데이터를 불러오는 부분
-    axios.get('http://localhost:3001/all')
+    axios.get('http://127.0.0.1:8000/api/')
       .then((response) => {
         setData(response.data);
         setLoading(false); // 데이터 로딩이 완료되면 로딩 상태를 false로 변경
@@ -48,6 +73,16 @@ export default function Community() {
   const header: string[] = ["번호", "제목", "글쓴이", "등록일", "조회"];
 
   const paginatedData = data.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const formatDate = (dateString: string): string => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' } as any;
+
+    return new Date(dateString).toLocaleDateString('ko-KR', options);
+};
+
+// 예시로 increaseCount 함수 호출
+
+
+
 
   return (
     <div>
@@ -101,11 +136,11 @@ export default function Community() {
             ) : (
               paginatedData.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.num}</td>
-                  <td>{item.title}</td>
-                  <td>{item.name}</td>
-                  <td>{item.date}</td>
-                  <td>{item.views}</td>
+                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.id}</Link></td>
+                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.title}</Link></td>
+                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.name}</Link></td>
+                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{formatDate(item.created_at)}</Link></td>
+                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.count}</Link></td>
                 </tr>
               ))
             )}

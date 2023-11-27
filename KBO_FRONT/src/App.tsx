@@ -20,6 +20,7 @@ import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
 import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
 import Schedule from "./components/pages/SchedulePage/Schedule";
+import Content from "./components/pages/CommunityPage/Content";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
         <Route path="/Community" element={<Community />}></Route>
+        <Route path="/Content/:id" element={<Content />}></Route>
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Signup" element={<Signup />}></Route>
         <Route path="/Quiz" element={<Quiz />}></Route>
