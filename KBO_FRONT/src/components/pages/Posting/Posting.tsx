@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { StyledContent, StyledTable, PostBtnPosition, StyledPostBtn, Input } from './StyledPosting';
+import { StyledContent, StyledTable, PostBtnPosition, StyledPostBtn, Input, H1 } from './StyledPosting';
 import { useNavigate } from 'react-router-dom';
 
 interface Post {
@@ -72,40 +72,47 @@ const BulletinBoard: React.FC = () => {
     return (
         <div>
             <StyledTable>
-                <h1>글 작성</h1>
-                <tr>
-                    <td>제목</td>
-                    <td className='userInput' colSpan={3}><Input
-                        type="text"
-                        name="title"
-                        value={newPost.title}
-                        onChange={handleInputChange}
-                        placeholder='제목을 입력하세요.'
-                    />
-                    </td>
-                </tr>
-                <tr>
-                    <td className='title'>글쓴이</td>
-                    <td className='nickname'>닉네임 부분</td>
-                    <td className='title'>응원구단</td>
-                    <td>응원구단명</td>
-                </tr>
-                <tr>
-                    <td id='content'>내용</td>
-                    <td className='userInput' colSpan={3}>
-                        <StyledContent>
-                            <textarea
-                                name="content"
-                                value={newPost.content}
-                                onChange={handleInputChange}
-                                placeholder='내용을 입력하세요.'
-                            />
-                        </StyledContent>
-                    </td>
-                </tr>
+                <thead>
+                    <tr id='head'>
+                        <th>글 작성</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>제목</td>
+                        <td className='userInput' colSpan={3}><Input
+                            type="text"
+                            name="title"
+                            value={newPost.title}
+                            onChange={handleInputChange}
+                            placeholder='제목을 입력하세요.'
+                        />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='title'>글쓴이</td>
+                        <td className='nickname'>닉네임 부분</td>
+                        <td className='title'>응원구단</td>
+                        <td>응원구단명</td>
+                    </tr>
+                    <tr>
+                        <td id='content'>내용</td>
+                        <td className='userInput' colSpan={3}>
+                            <StyledContent>
+                                <textarea
+                                    name="content"
+                                    value={newPost.content}
+                                    onChange={handleInputChange}
+                                    placeholder='내용을 입력하세요.'
+                                />
+                            </StyledContent>
+                        </td>
+                    </tr>
+                </tbody>
             </StyledTable>
             <PostBtnPosition>
-                <StyledPostBtn onClick={handlePostSubmit}>글쓰기</StyledPostBtn>
+                <StyledPostBtn onClick={handlePostSubmit}>등록하기</StyledPostBtn>
             </PostBtnPosition>
         </div>
     );

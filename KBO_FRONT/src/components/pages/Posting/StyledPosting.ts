@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
 
+export const H1 = styled.div`
+    width : 50%;
+    margin : 50px auto 15px auto;
+`
+
 export const StyledTable = styled.table`
+
     border-collapse: collapse;
     width : 50%;
     height : 100px;
     text-align:center;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top : 50px;
-    h1 {
-        margin-bottom : 50px;
-    }
+    margin : 50px auto;
     tr {
         border-top: 3px solid #5C9B57;
         font-size: 28px;
@@ -34,6 +35,9 @@ export const StyledTable = styled.table`
     }
     #content {
         vertical-align: top;
+    }
+    #head {
+        border : none;
     }
 `; 
 
