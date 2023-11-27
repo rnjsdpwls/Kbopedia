@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, StyledContent, StyledTable, PostBtnPosition, StyledPostBtn } from './StyledPosting';
+import { StyledContent, StyledTable, PostBtnPosition, StyledPostBtn, Input } from './StyledPosting';
 import { useNavigate } from 'react-router-dom';
 
 interface Post {
@@ -70,43 +70,44 @@ const BulletinBoard: React.FC = () => {
 
 
     return (
-        <Container>
+        <div>
             <StyledTable>
-            <h1>글 작성</h1>
+                <h1>글 작성</h1>
                 <tr>
                     <td>제목</td>
-                    <td colSpan={4}><input
+                    <td className='userInput' colSpan={3}><Input
                         type="text"
                         name="title"
                         value={newPost.title}
                         onChange={(e) => handleInputChange(e)}
+                        placeholder='제목을 입력하세요.'
                     />
                     </td>
                 </tr>
                 <tr>
-                    <td>글쓴이</td>
-                    <td>닉네임 부분</td>
-                    <td>응원구단</td>
+                    <td className='title'>글쓴이</td>
+                    <td className='nickname'>닉네임 부분</td>
+                    <td className='title'>응원구단</td>
                     <td>응원구단명</td>
                 </tr>
                 <tr>
-                    <td>내용</td>
-                    <td colSpan={4}>
+                    <td id='content'>내용</td>
+                    <td className='userInput' colSpan={3}>
                         <StyledContent>
                             <textarea
                                 name="content"
                                 value={newPost.content}
                                 onChange={(e) => handleInputChange(e)}
+                                placeholder='내용을 입력하세요.'
                             />
                         </StyledContent>
                     </td>
                 </tr>
             </StyledTable>
-                <PostBtnPosition>
-                    <StyledPostBtn onClick={handlePostSubmit}>글쓰기</StyledPostBtn>
-                </PostBtnPosition>
-        </Container>
+            <PostBtnPosition>
+                <StyledPostBtn onClick={handlePostSubmit}>글쓰기</StyledPostBtn>
+            </PostBtnPosition>
+        </div>
     );
 };
-
 export default BulletinBoard;
