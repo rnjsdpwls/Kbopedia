@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
     display:flex;
 `
+
+
 export const StyledTable = styled.table`
     border-collapse: collapse;
     font-family: 'KBO-Dia-Gothic_medium';
@@ -10,6 +12,7 @@ export const StyledTable = styled.table`
     margin-top: 60px;
     margin-right: auto;
 
+    height:0;
     th, td {
         text-align: center; /* Center-align text within the cells */
     }
