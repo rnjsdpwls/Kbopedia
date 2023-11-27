@@ -150,7 +150,7 @@ export default function Community() {
         <div>
           {/* Display page numbers */}
           {Array.from({ length: totalPages }).map((_, index) => (
-            <Pagebutton
+            <Pagebutton 
               key={index}
               onClick={() => setCurrentPage(index + 1)}
               style={{ fontWeight: currentPage === index + 1 ? 'bold' : 'normal' }}
