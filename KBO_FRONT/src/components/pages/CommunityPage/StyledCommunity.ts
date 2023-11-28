@@ -24,6 +24,7 @@ export const StyledTable = styled.table`
         font-family: 'KBO-Dia-Gothic_light';
         font-size: 16px;
         padding: 13px;
+        font-weight: bold;
     }
 `;
 
