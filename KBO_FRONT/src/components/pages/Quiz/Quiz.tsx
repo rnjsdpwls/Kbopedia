@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizOption } from "./StyleQuiz";
+import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizFinish, QuizOption } from "./StyleQuiz";
 
 interface Quiz {
   question: string;
@@ -100,15 +100,17 @@ export default function Quiz() {
           )}
 
           {quizSuccess && (
-            <QuizAnswer style={{ backgroundColor: '#CBC65A' }}>
-              <p>퀴즈 성공!!</p>
+            <QuizFinish>
+              <p>오늘의 퀴즈 
+                <br/>
+                성공!!</p>
 
               <AnswerButton onClick={handleQuizLinkClick} style={{ cursor: 'pointer' }}>
                 확인
               </AnswerButton>
 
 
-            </QuizAnswer>
+            </QuizFinish>
           )}
         </>
       )}
