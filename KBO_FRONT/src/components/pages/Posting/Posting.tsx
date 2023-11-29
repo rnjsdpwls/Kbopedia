@@ -17,7 +17,7 @@ interface NewPost {
     content: string;
 }
 
-const BulletinBoard: React.FC = () => {
+const BulletinBoard = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [newPost, setNewPost] = useState<NewPost>({ title: '', content: '' });
     const [editPost, setEditPost] = useState<Post | null>(null);
