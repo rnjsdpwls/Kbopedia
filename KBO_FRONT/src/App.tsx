@@ -19,7 +19,6 @@ import MainPage from './components/pages/MainPage/MainPage';
 import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
 import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
-import Schedule from "./components/pages/SchedulePage/Schedule";
 import Content from "./components/pages/CommunityPage/Content";
 
 function App() {
@@ -47,7 +46,6 @@ function App() {
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems" element={<TeamItems newId={1} />} />
         <Route path="/Dict" element={<Dict />}></Route>
-        <Route path="/Schedule" element={<Schedule />}></Route>
       </Routes>
     </div >
   );
