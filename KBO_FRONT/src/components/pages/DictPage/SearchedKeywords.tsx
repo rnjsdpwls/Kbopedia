@@ -10,14 +10,14 @@ type TermsData = {
 
 interface SearchedKeywordsProps {
   searchValue: string;
-  termType: 'basic' | 'advanced';
+  termType: 'basic' | 'advanced' | null;
 }
 
 export default function SearchedKeywords({ searchValue, termType }: SearchedKeywordsProps) {
   const [data, setData] = useState<TermsData[]>([]);
 
   useEffect(() => {
-    const termData = termType === 'basic' ? termsDummy.basic_term : termsDummy.advanced_term;
+    const termData = [...termsDummy.basic_term, ...termsDummy.advanced_term];
 
     const filteredData = termData.filter((item) =>
       item.term.toLowerCase().includes(searchValue.toLowerCase())
