@@ -17,7 +17,7 @@ export default function SearchedKeywords({ searchValue, termType }: SearchedKeyw
   const [data, setData] = useState<TermsData[]>([]);
 
   useEffect(() => {
-    const termData = [...termsDummy.basic_term, ...termsDummy.advanced_term];
+    const termData = termType === 'basic' ? termsDummy.basic_term : termsDummy.advanced_term;
 
     const filteredData = termData.filter((item) =>
       item.term.toLowerCase().includes(searchValue.toLowerCase())
