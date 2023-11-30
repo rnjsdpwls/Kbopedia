@@ -44,7 +44,7 @@ function App() {
         <Route path="/Eagles" element={<Eagles />}></Route>
         <Route path="/Wiz" element={<Wiz />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
-        <Route path="/TeamItems" element={<TeamItems newId={1} />} />
+        <Route path="/TeamItems/:id" element={<TeamItems />} />
         <Route path="/Dict" element={<Dict />}></Route>
       </Routes>
     </div >
