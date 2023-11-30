@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/RecordMenu.css';
 import ball from '../../../../images/ball.png';
+import { Link } from 'react-router-dom';
 
 interface DropdownItemProps {
   text: string;
@@ -49,7 +50,7 @@ const RecordMenu = () => {
           기록•순위
         </h3>
         <ul>
-          <DropdownItem text={'팀 순위'} />
+          <Link to="/GameResultsTable"><DropdownItem text={'팀 순위'} /></Link>
           <DropdownItem text={'선수 순위'} />
           <DropdownItem text={'역대 기록'} />
         </ul>

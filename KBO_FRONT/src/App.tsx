@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import GlobalHeader from './components/Header/GlobalHeader';
 import Community from "./components/pages/CommunityPage/Community";
 import Login from "./components/pages/login/Login";
@@ -20,6 +20,7 @@ import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
 import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
 import Content from "./components/pages/CommunityPage/Content";
+import GameResultsTable from './components/pages/Schedule/GameResultsTable';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems/:id" element={<TeamItems />} />
         <Route path="/Dict" element={<Dict />}></Route>
+        <Route path="/GameResultsTable" element={<GameResultsTable />} />
       </Routes>
     </div >
   );
