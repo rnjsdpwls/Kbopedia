@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TeamInfoMainTitle, TeamTable, TeamContainer, TeamTableTitle, TeamTableItem, Spacing, Info } from './StyledTeamInfoMain';
+import { TeamInfoMainTitle, TeamTable, TeamContainer, TeamTableTitle, TeamTableItem, Spacing, Info, HoverableTeamTableItem } from './StyledTeamInfo';
 import dummy from '../../../db/teamData.json';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ type TeamData = {
 };
 
 type Props = {
-  newId: number;
+  newId?: number;
 };
 
 export default function TeamInfo({ newId }: Props) {
@@ -36,8 +36,8 @@ export default function TeamInfo({ newId }: Props) {
         <ul key={team.id}>
           <li>
             <div style={{ display: 'flex' }}>
-              <Link to="/TeamItems">
-                <TeamTableItem style={{ width: '120px' }}>{team.teamName}</TeamTableItem>
+              <Link to={`/TeamItems/${team.id}`}>
+                <HoverableTeamTableItem style={{ width: '120px' }}>{team.teamName}</HoverableTeamTableItem>
               </Link>
               <TeamTableItem style={{ width: '120px' }}>{team.foundingYear}</TeamTableItem>
               <TeamTableItem style={{ width: '150px' }}>{team.region}</TeamTableItem>
@@ -50,5 +50,4 @@ export default function TeamInfo({ newId }: Props) {
     </TeamContainer>
   );
 }
-
 
