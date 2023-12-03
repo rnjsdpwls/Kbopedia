@@ -14,6 +14,12 @@
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.dict-menu-trigger img:hover {
+  opacity: 1;
 }
 
 .dict-menu-heading {
@@ -26,37 +32,25 @@
 
 .dict-dropdown-menu {
   position: absolute;
-  top: -10px;
   left: 90px;
   background-color: #fff;
   border: 2px solid #574919;
   padding: 10px 20px;
   width: 200px;
-}
-
-.dict-dropdown-menu::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: 20px;
-  height: 20px;
-  width: 20px;
-  background: var(--secondary-bg);
-  transform: rotate(45deg);
+  transition: all 0.3s;
 }
 
 .dict-dropdown-menu.active {
-  opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  transition: var(--speed) ease;
+  transition: all 0.3s ease;
 }
 
 .dict-dropdown-menu.inactive {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
-  transition: var(--speed) ease;
+  transition: all 0.3s ease;
 }
 
 .dict-dropdown-heading {
@@ -75,27 +69,10 @@
 .dict-dropdown-menu ul li:hover a {
   color: #5c9b57;
   cursor: pointer;
-}
-
-.dict-dropdown-menu ul li:hover img {
-  opacity: 1;
-  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .dict-dropdownItem {
   display: flex;
   margin: 10px auto;
-}
-
-.dict-dropdownItem img {
-  max-width: 30px;
-  margin-right: 10px;
-  opacity: 0.5;
-  transition: var(--speed);
-}
-
-.dict-dropdownItem a {
-  max-width: 100px;
-  margin-left: 10px;
-  transition: var(--speed);
 }
