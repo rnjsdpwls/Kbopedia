@@ -50,7 +50,7 @@ const DictMenu = () => {
           용어•규칙
         </h3>
         <ul>
-          <DropdownItem text={'KBO 리그 기초 정보'} />
+          <Link to="/Dict"> <DropdownItem text={'KBO 리그 기초 정보'} /></Link>
           <Link to="/Quiz"> <DropdownItem text={'야구 퀴즈'} /></Link>
         </ul>
       </div>

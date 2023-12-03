@@ -54,7 +54,7 @@ const CommunityMenu = () => {
         </h3>
         <ul>
           <DropdownItem text={'내 글 보기'} />
-          <DropdownItem text={'글 작성'} />
+          <Link to='/Posting'><DropdownItem text={'글 작성'} /></Link>
         </ul>
       </div>
       <div className='community-menu-trigger'>
