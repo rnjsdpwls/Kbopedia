@@ -14,14 +14,16 @@ export const CellA = gameresults.p`
 export const CellB = gameresults.p`
     text-align: center;
     margin: 30px;
-    Line-height: 1px;
+    Line-height: 2px;
     vertical-align: middle;
     flex: 1;
 `
 export const CellC = gameresults.div`
+    text-align: center;
+    margin: 30px 50px;
+    line-height: 2px;
+    vertical-align: middle;
     flex: 1;
-    display: flex;
-    flexDirection: column;
 `
 export const CellD = gameresults.div`
     display: flex;
@@ -30,11 +32,10 @@ export const CellD = gameresults.div`
     justifyContent: center;
 `
 export const CellE = gameresults.p`
-    textAlign: center;
-    margin: 60px 50px 70px;
-    Line-height: 1px;
+    text-align: center;
+    margin: 30px;
+    line-height: 2px;
     vertical-align: middle;
     flex: 1;
-   
 `
 
