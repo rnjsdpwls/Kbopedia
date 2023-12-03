@@ -1,6 +1,6 @@
 import React from 'react';
 import gameResultsData from '../../../db/gameResults.json';
-
+import { CellA, CellB, CellC, CellE} from './GameResultsTableA';
 interface GameResult {
   date: string;
   time: string;
@@ -24,10 +24,10 @@ function GameResultsTable() {
       {/* Header Row */}
       {!headerDisplayed && (
         <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row' }}>
-          <p style={{ textAlign: 'center', margin: '30px 25px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>날짜</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>시간</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>경기</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>구장</p>
+          <CellA>날짜</CellA>
+          <CellB>시간</CellB>
+          <CellB>경기</CellB>
+          <CellB>구장</CellB>
         </div>
       )}
 
@@ -45,17 +45,17 @@ function GameResultsTable() {
             </div>
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.time}</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.stadium}</p>
+          <CellC>{result.time}</CellC>
+          <CellE>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</CellE>
+          <CellE>{result.stadium}</CellE>
           </div> 
 
           <hr style={{ width: '1000px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
 
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.time}</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>{result.stadium}</p>
+          <CellC>{result.time}</CellC>
+          <CellE>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</CellE>
+          <CellE>{result.stadium}</CellE>
            </div>
           </div>
         </div>
@@ -76,8 +76,3 @@ function GameResultsTable() {
 export default GameResultsTable;
 
 
-
-{/* <p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.date}</p>
-<p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.time}</p>
-<p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</p>
-<p style={{ textAlign: 'center', margin: '30px', verticalAlign: 'middle', flex: 1 }}>{result.stadium}</p> */}
