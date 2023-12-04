@@ -1,26 +1,20 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const LoginForm = styled.section`
-
   align-items: center;
   padding: 20px;
   display: flex;
-  position : relative;
-  top : 50px;
+  position: relative;
+  top: 50px;
   justify-content: center;
-  align-items: center; 
-
-  
+  align-items: center;
 `;
-export const Loginbox = styled.form
-`
-align-items: center;
-width: 450px;
-height: 370px;
-background: #5C9B57;
-border-radius: 30px;
-
+export const Loginbox = styled.form`
+  align-items: center;
+  width: 450px;
+  height: 370px;
+  background: #5c9b57;
+  border-radius: 30px;
 `;
 
 export const Title = styled.h1`
@@ -29,59 +23,49 @@ export const Title = styled.h1`
   font-color: black;
   text-align: center;
   font-weight: 100px;
-
 `;
 
-export const Inputs = styled.div
-`
+export const Inputs = styled.div`
   margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const Input = styled.input
-`
+export const Input = styled.input`
   font-size: 20px;
   width: 290px;
   padding: 20px;
-  margin : 10px;
+  margin: 10px;
   border: none;
   border-radius: 10px;
-
 `;
 
-export const Conditions = styled.div
-`
+export const Conditions = styled.div`
   font-size: 20px;
   text-align: center;
-  color: #DADADA;
-  position : relative;
-  left:-58px;
-  
+  color: #dadada;
+  position: relative;
+  left: -58px;
 `;
-export const LoginButton = styled.button
-`
+export const LoginButton = styled.button`
   background-color: white;
-  color: #AEAEAE;
+  color: #aeaeae;
   border: none;
   padding: 15px 25px;
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
   font-weight: bold;
-  position : relative;
-  top : 50px;
+  position: relative;
+  top: 50px;
   left: 300px;
-
 `;
 
-export const LogSuccess = styled.h2
-`
-font-family: 'KBO-Dia-Gothic_bold';
-color : white;
-align-items: center;
-position : relative;
-top : 100px;
-
-`
+export const LogSuccess = styled.h2`
+  font-family: "KBO-Dia-Gothic_bold";
+  color: white;
+  align-items: center;
+  position: relative;
+  top: 100px;
+`;

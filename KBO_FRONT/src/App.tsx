@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import GlobalHeader from './components/Header/GlobalHeader';
+import GlobalFooter from "./components/Footer/GlobalFooter";
 import Community from "./components/pages/CommunityPage/Community";
 import Login from "./components/pages/login/Login";
 import Signup from "./components/pages/signup/SignupId";
@@ -19,6 +20,7 @@ import MainPage from './components/pages/MainPage/MainPage';
 import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
 import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
+import MainInfo from "./components/pages/MainPage/components/MainInfo";
 import Content from "./components/pages/CommunityPage/Content";
 import GameResultsTable from './components/pages/Schedule/GameResultsTable';
 
@@ -44,11 +46,14 @@ function App() {
         <Route path="/Lions" element={<Lions />}></Route>
         <Route path="/Eagles" element={<Eagles />}></Route>
         <Route path="/Wiz" element={<Wiz />}></Route>
+        <Route path="/MainInfo" element={<MainInfo />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems/:id" element={<TeamItems />} />
         <Route path="/Dict" element={<Dict />}></Route>
+        <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
         <Route path="/GameResultsTable" element={<GameResultsTable />} />
       </Routes>
+
     </div >
   );
 }
