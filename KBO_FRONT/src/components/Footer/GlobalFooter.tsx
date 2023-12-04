@@ -1,13 +1,20 @@
+import { DivideLine, Footer, FooterInfo, FooterLogo, FooterLogoTitle, LogoContainer } from "./StyledGlobalFooter";
 import logo from '../../images/logo.png';
-import './GlobalFooter.css';
 
-
-const GlobalFooter = () => {
+export default function GlobalFooter() {
   return (
-    <div className='footer'>
-      hihi here is footer
-    </div>
+    <Footer>
+      <LogoContainer>
+        <FooterLogo src={logo} alt='logo' />
+        <FooterLogoTitle>KBO Pedia</FooterLogoTitle>
+      </LogoContainer>
+      <DivideLine />
+      <FooterInfo>
+        오류접수 | ksunperson@naver.com
+        <br />
+        Github | https://github.com/rnjsdpwls/Kbopedia
+      </FooterInfo>
+    </Footer >
   );
 }
 
-export default GlobalFooter;
