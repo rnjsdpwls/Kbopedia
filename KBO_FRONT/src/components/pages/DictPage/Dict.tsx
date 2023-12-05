@@ -1,21 +1,21 @@
 import { useState, ChangeEvent } from "react";
-import { SearchInput, InputForm, BtnSearch, DictTitle, BtnSort, BtnSortContainer } from "./StyledDict";
+import { SearchInput, InputForm, DictTitle, BtnSort, BtnSortContainer } from "./StyledDict";
 import SearchedKeywords from "./SearchedKeywords";
 
 export default function Dict() {
   const [value, setValue] = useState("");
-  const [termType, setTermType] = useState<'basic' | 'advanced'>('basic');
+  const [termType, setTermType] = useState<'basic' | 'advanced' | null>(null);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
   const handleBasicClick = () => {
-    setTermType('basic');
+    setTermType(termType === 'basic' ? null : 'basic');
   };
 
   const handleAdvancedClick = () => {
-    setTermType('advanced');
+    setTermType(termType === 'advanced' ? null : 'advanced');
   };
 
   return (
@@ -25,11 +25,10 @@ export default function Dict() {
         <InputForm value={value}
           onChange={onChange}
           type="text" />
-        <BtnSearch >검색</BtnSearch>
       </SearchInput>
       <BtnSortContainer>
-        <BtnSort onClick={handleBasicClick}>기초 용어</BtnSort>
-        <BtnSort onClick={handleAdvancedClick}>심화 용어</BtnSort>
+        <BtnSort isActive={termType === 'basic'} onClick={handleBasicClick}>기초 용어</BtnSort>
+        <BtnSort isActive={termType === 'advanced'} onClick={handleAdvancedClick}>심화 용어</BtnSort>
       </BtnSortContainer>
       <SearchedKeywords searchValue={value} termType={termType} />
     </div>

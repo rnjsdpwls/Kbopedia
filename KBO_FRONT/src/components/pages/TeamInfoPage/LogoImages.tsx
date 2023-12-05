@@ -1,4 +1,4 @@
-import { StyledImages } from './StyledTeamInfo';
+import { StyledImages } from './StyledTeamItems';
 import dummy from '../../../db/teamData.json';
 
 type TeamData = {

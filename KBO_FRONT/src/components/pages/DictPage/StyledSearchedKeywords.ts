@@ -22,14 +22,19 @@ export const ItemTerm = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   position: relative;
   width: 150px;
+  white-space: pre-wrap;
+  line-height: 1.3em;
 `;
 
 export const ItemDescription = styled.span`
   position: relative;
   margin: 10px;
   width: 600px;
+  white-space: pre-wrap; // 줄바꿈을 위한
+  line-height: 1.3em;
 `;
 
 export const BtnWords = styled.button`

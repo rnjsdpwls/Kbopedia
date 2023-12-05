@@ -62,7 +62,7 @@ export const QuizAnswer = styled.div`
   color: #FFFFFF;
   position: absolute;
   top: 10%;
-  left:-40%;
+  left:-41%;
   width: 356px;
   height:250px;
   padding:80px;
@@ -82,6 +82,20 @@ font-size: 20px;
 cursor: pointer;
 font-weight: bold;
 position : absolute;
-top: 60%;
+top: 70%;
 left:35%;
+`;
+
+export const QuizFinish = styled.div`
+  font-size: 40px;
+  background-color: #E4DF73;
+  color: #FFFFFF;
+  position: absolute;
+  top: -20%;
+  left:-47%;
+  width: 400px;
+  height:300px;
+  padding:50px;
+  border-radius: 30px;
+  text-align: center;
 `;

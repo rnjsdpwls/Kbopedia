@@ -10,7 +10,7 @@ type TermsData = {
 
 interface SearchedKeywordsProps {
   searchValue: string;
-  termType: 'basic' | 'advanced';
+  termType: 'basic' | 'advanced' | null;
 }
 
 export default function SearchedKeywords({ searchValue, termType }: SearchedKeywordsProps) {

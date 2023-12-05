@@ -1,55 +1,58 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
+export const TeamContainer = styled.div`
+  text-align: center;
+  position: relative;
+  margin: 100px 0;
 `;
 
-export const TeamName = styled.div`
+export const TeamInfoMainTitle = styled.div`
+  font-size: 70px;
+`;
+
+export const Info = styled.p`
+  float: right;
+  font-size: 11px;
+  color: gray;
+`;
+
+export const TeamTable = styled.ul`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  color: #5c9b57;
-  font-size: 90px;
+  margin-top: 100px;
+  margin-bottom: 20px;
 `;
 
-export const StyledForUrl = styled.a`
+export const TeamTableTitle = styled.ul`
+  color: #5c9b57;
+  font-size: 20px;
+  width: 150px;
+`;
+
+export const TeamTableContainer = styled.ul`
+  justify-content: center;
+  text-align: center;
+  text-align: center;
+`;
+
+export const TeamTableItem = styled.li`
+  display: flex;
+  text-align: center;
+  width: 150px;
+  white-space: pre-wrap;
+`;
+
+export const HoverableTeamTableItem = styled(TeamTableItem)`
   &:hover {
     color: #5c9b57;
+    transition: color 0.2s ease;
   }
 `;
 
-export const StyledImage = styled.img`
-  margin-top: 80px;
-  width: 500px;
-  height: 300px;
-`;
-
-export const StyledImages = styled.img`
-  display: block;
-  width: 75px;
-  height: 60px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  cursor: pointer;
-`;
-
-export const StyledTeamDetail = styled.div`
-  margin-top: 80px;
-  // margin-right: 50px;
-  color: black;
-  font-size: 35px;
-`;
-
-export const LineSpacing = styled.p`
-  margin-top: 30px;
-`;
-
-export const LogoImagePosition = styled.div`
-  margin-left: 80px;
-  margin-right: 50px;
-`;
-
-export const PropsContainer = styled.div`
+export const Spacing = styled.hr`
   display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 800px;
 `;
