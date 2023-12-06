@@ -1,11 +1,12 @@
 import { useState, ChangeEvent } from "react";
 import { SearchInput, InputForm, DictTitle, BtnSort, BtnSortContainer } from "./StyledDict";
 import SearchedKeywords from "./SearchedKeywords";
+import termsData from '../../../db/termsData.json';
 
 export default function Dict() {
   const [value, setValue] = useState("");
   const [termType, setTermType] = useState<'basic' | 'advanced' | null>(null);
-
+  const allTerms = [...termsData.basic_term, ...termsData.advanced_term];
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
@@ -30,7 +31,7 @@ export default function Dict() {
         <BtnSort isActive={termType === 'basic'} onClick={handleBasicClick}>기초 용어</BtnSort>
         <BtnSort isActive={termType === 'advanced'} onClick={handleAdvancedClick}>심화 용어</BtnSort>
       </BtnSortContainer>
-      <SearchedKeywords searchValue={value} termType={termType} />
+      <SearchedKeywords searchValue={value} termType={termType} allTerms={allTerms} />
     </div>
   );
 }
