@@ -1,6 +1,6 @@
 .record-menu-container {
   position: absolute;
-  top: 760px;
+  top: 820px;
   left: -50px;
   width: 200px;
   height: 100px;
@@ -11,8 +11,6 @@
   top: 15px;
   left: 15px;
   height: 65px;
-  width: 65px;
-  overflow: hidden;
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s;
