@@ -10,7 +10,6 @@ type TermsData = {
 
 export default function TodayTerm() {
   const [randomTermData, setRandomTermData] = useState<TermsData | null>(null);
-
   useEffect(() => {
     const allTerms = [...termsData.basic_term, ...termsData.advanced_term];
     const randomId = Math.floor(Math.random() * allTerms.length);

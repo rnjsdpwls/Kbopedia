@@ -9,7 +9,7 @@ export const SearchInput = styled.div`
 export const DictTitle = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 80px;
   font-size: 70px;
 `;
 
