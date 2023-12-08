@@ -34,7 +34,7 @@ export default function Community() {
   
   const increaseCount = async (postId:number):Promise<void> => {
     try {
-      const response = await axios.get<DataItem>(`http://127.0.0.1:8000/api/posts/${postId}/increase_count/`);
+      const response = await axios.get<DataItem>(`http://127.0.0.1:8000/posts/${postId}/increase_count/`);
       // 증가된 count를 받아올 수 있습니다.
       console.log(`Count increased for post ${postId}: ${response.data.count}`);
 
@@ -57,7 +57,7 @@ export default function Community() {
 
   useEffect(() => {
     // 데이터를 불러오는 부분
-    axios.get('http://127.0.0.1:8000/api/')
+    axios.get('http://127.0.0.1:8000')
       .then((response) => {
         setData(response.data);
         setLoading(false); // 데이터 로딩이 완료되면 로딩 상태를 false로 변경

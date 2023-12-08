@@ -21,6 +21,7 @@ import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
 import Schedule from "./components/pages/SchedulePage/Schedule";
 import Content from "./components/pages/CommunityPage/Content";
+import LoginComponent from "./components/pages/login/LoginComponent";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Community" element={<Community />}></Route>
         <Route path="/Content/:id" element={<Content />}></Route>
         <Route path="/Login" element={<Login />}></Route>
+        <Route path="/LoginComponent" element={<LoginComponent />}></Route>
         <Route path="/Signup" element={<Signup />}></Route>
         <Route path="/Quiz" element={<Quiz />}></Route>
         <Route path="/Posting" element={<Posting />}></Route>

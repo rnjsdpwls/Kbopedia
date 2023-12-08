@@ -26,7 +26,7 @@ const BulletinBoard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<Post[]>('http://127.0.0.1:8000/api/');
+                const response = await axios.get<Post[]>('http://127.0.0.1:8000');
                 setPosts(response.data);
             } catch (error) {
                 console.log(error);
@@ -57,7 +57,7 @@ const BulletinBoard = () => {
 
     const handlePostSubmit = async () => {
         try {
-            const response = await axios.post<Post>('http://127.0.0.1:8000/api/', newPost);
+            const response = await axios.post<Post>('http://127.0.0.1:8000', newPost);
             setPosts([...posts, response.data]);
             setNewPost({ title: '', content: '' });
 
