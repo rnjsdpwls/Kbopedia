@@ -4,6 +4,9 @@ import GlobalFooter from "./components/Footer/GlobalFooter";
 import Community from "./components/pages/CommunityPage/Community";
 import Login from "./components/pages/login/Login";
 import Quiz from "./components/pages/Quiz/Quiz";
+import QuizList from "./components/pages/Quiz/QuizList";
+import QuizPage from "./components/pages/Quiz/QuizPage";
+
 import Posting from "./components/pages/Posting/Posting";
 import MainPage from './components/pages/MainPage/MainPage';
 import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
@@ -23,6 +26,9 @@ function App() {
         <Route path="/Content/:id" element={<Content />}></Route>
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Quiz" element={<Quiz />}></Route>
+        <Route path="/QuizList" element={<QuizList />}></Route>
+        <Route path="/quiz/basic" element={<QuizPage level="quizbasic" />} />
+        <Route path="/quiz/deep" element={ <QuizPage level="quizdeep" />} />
         <Route path="/Posting" element={<Posting />}></Route>
         <Route path="/MainInfo" element={<MainInfo />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
