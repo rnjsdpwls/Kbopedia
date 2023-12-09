@@ -1,15 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -18,7 +7,6 @@ export const Container = styled.div`
   margin-top: 70px;
   margin-bottom: 150px;
   flex-direction: column;
-  animation: ${fadeIn} 2s ease-out;
 `;
 
 export const Spacing = styled.hr`
