@@ -4,21 +4,21 @@ export const Container = gameresults.div`
     display: flex;
     justify-content: space-around;
 `
-export const CellA = gameresults.p`
+export const TimeA = gameresults.p`
     text-align: center;
     margin: 30px 25px;
     line-height: 2px;
     vertical-align: middle;
     flex: 1;
 `
-export const CellB = gameresults.p`
+export const Same = gameresults.p`
     text-align: center;
     margin: 30px;
     Line-height: 2px;
     vertical-align: middle;
     flex: 1;
 `
-export const CellC = gameresults.div`
+export const Time = gameresults.div`
     text-align: center;
     margin: 30px 50px;
     line-height: 2px;
@@ -31,11 +31,27 @@ export const CellD = gameresults.div`
     alignItems: center;
     justifyContent: center;
 `
-export const CellE = gameresults.p`
+export const TeamandScore = gameresults.p`
     text-align: center;
     margin: 30px;
     line-height: 2px;
     vertical-align: middle;
     flex: 1;
 `
-
+export const Hline = gameresults.hr`
+    width: 1300px;
+    height: 2px;
+    border: 1;
+    backgroundColor: green;
+`
+export const HrB  = gameresults.hr`
+    width: 1000px;
+    height: 2px;
+    border: 1;
+    backgroundColor: green;
+`
+export const Above = gameresults.div`
+    margin: 0 auto;
+    display: flex;
+    flexDirection: row;
+`
