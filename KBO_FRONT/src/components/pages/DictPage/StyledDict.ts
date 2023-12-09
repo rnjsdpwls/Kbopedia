@@ -9,15 +9,16 @@ export const SearchInput = styled.div`
 export const DictTitle = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 80px;
   font-size: 70px;
 `;
 
 export const InputForm = styled.input`
   border: 1px solid black;
-  width: 300px;
+  width: 350px;
   height: 50px;
   border-radius: 10px;
+  padding-left: 15px;
   box-shadow: 0 2px 6px rgb(0 0 0 /20%); // 마지막 투명도
   font-size: 17px;
   &:focus {
@@ -25,8 +26,9 @@ export const InputForm = styled.input`
   }
 `;
 
-export const BtnSort = styled.button`
-  background-color: #c6dfc4;
+export const BtnSort = styled.button<{ isActive: boolean }>`
+  background-color: ${({ isActive }) => (isActive ? "#61a063" : "#c6dfc4")};
+  color: ${({ isActive }) => (isActive ? "white" : "initial")};
   position: relative;
   border-radius: 10px;
   width: 100px;

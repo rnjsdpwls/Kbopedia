@@ -1,6 +1,6 @@
 .team-menu-container {
   position: absolute;
-  top: 490px;
+  top: 550px;
   left: 180px;
   width: 200px;
   height: 200px;
@@ -15,6 +15,12 @@
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.team-menu-trigger img:hover {
+  opacity: 1;
 }
 
 .team-menu-heading {

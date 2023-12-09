@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizOption } from "./StyleQuiz";
+import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizFinish, QuizOption } from "./StyleQuiz";
 
 interface Quiz {
   question: string;
@@ -12,6 +12,8 @@ export default function Quiz() {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [quizSuccess, setQuizSuccess] = useState<boolean>(false);
+  const [score, setScore] = useState<number>(0); 
+  const [totalQuestions, setTotalQuestions] = useState<number>(0);
 
   useEffect(() => {
     const dummyQuizzes: Quiz[] = [
@@ -33,10 +35,12 @@ export default function Quiz() {
     ];
 
     setQuizzes(dummyQuizzes);
+    setTotalQuestions(dummyQuizzes.length); 
   }, []);
 
   const currentQuiz = quizzes[currentQuizIndex];
 
+  // 답 고르기
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
   };
@@ -46,6 +50,12 @@ export default function Quiz() {
       // 정답을 맞춘 경우
       if (selectedAnswer === currentQuiz.correctAnswer) {
         console.log('정답을 맞췄습니다.');
+        setScore(score + 1);
+       }
+       else {
+        // 정답을 틀린 경우
+        console.log('틀렸습니다.');
+       }
 
         // 다음 퀴즈로 또는 퀴즈 성공 처리
         if (currentQuizIndex + 1 < quizzes.length) {
@@ -54,10 +64,8 @@ export default function Quiz() {
           console.log('마지막 퀴즈를 완료했습니다.');
           setQuizSuccess(true);
         }
-      } else {
-        // 정답을 틀린 경우
-        console.log('틀렸습니다.');
-      }
+       
+      
       setSelectedAnswer(null);
     }
   };
@@ -100,19 +108,18 @@ export default function Quiz() {
           )}
 
           {quizSuccess && (
-            <QuizAnswer style={{ backgroundColor: '#CBC65A' }}>
-              <p>퀴즈 성공!!</p>
-
-              <AnswerButton onClick={handleQuizLinkClick} style={{ cursor: 'pointer' }}>
-                확인
+            <QuizFinish style={{ lineHeight: '1' }}>
+              <p>오늘의 퀴즈 
+                완료!!</p>
+                <br/>
+                <p>점수:{score}/{totalQuestions}</p>
+              <AnswerButton onClick={handleQuizLinkClick} style={{ cursor: 'pointer' , top: '70%' ,left:'38%'}}>
+                재도전
               </AnswerButton>
-
-
-            </QuizAnswer>
+            </QuizFinish>
           )}
         </>
       )}
     </Container>
   );
 }
-

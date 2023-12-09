@@ -13,7 +13,6 @@ const GlobalHeader = () => {
           </span>
         </Link>
         <span className='BtnContainer'>
-          <Link to="/Signup"><button className='btnSignup'>Signup</button></Link>
           <Link to="/Login"><button className='btnLogin'>Login</button></Link>
         </span>
       </div>

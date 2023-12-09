@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Container, TeamName, StyledTeamDetail, StyledImage, LineSpacing, LogoImagePosition, PropsContainer, StyledForUrl } from './StyledTeamInfo';
+import { useParams } from 'react-router-dom';
+import { Container, TeamName, StyledTeamDetail, StyledImage, LineSpacing, LogoImagePosition, PropsContainer, StyledForUrl } from './StyledTeamItems';
 import LogoImages from './LogoImages';
 import dummy from '../../../db/teamData.json';
 
@@ -15,11 +16,12 @@ type TeamData = {
 };
 
 type TeamItemsProps = {
-  newId: number | null;
+  newId?: number | null;
 };
 
 export default function TeamItems({ newId }: TeamItemsProps) {
-  const [teamId, setTeamId] = useState(newId);
+  const { id } = useParams<{ id?: string }>();
+  const [teamId, setTeamId] = useState(newId || (id ? parseInt(id, 10) : null));
   const teamData: TeamData | undefined = dummy.team.find((item) => item.id === teamId);
 
   if (!teamData) {

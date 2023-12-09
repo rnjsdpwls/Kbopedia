@@ -2,11 +2,8 @@
   display: flex;
   justify-content: center;
   position: relative;
-  padding-top: 40px;
+  padding-top: 100px;
   /* background-color: rgba(115, 165, 113, 0.543); */
-  /* background-color: #91c296; */
-  /* background-color: #86b38b; */
-  /* background-color: #61a063; */
 }
 
 .btnContainer {

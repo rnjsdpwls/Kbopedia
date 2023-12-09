@@ -12,9 +12,9 @@ const MainField = () => {
       <img src={field} alt='field' className='fieldImage' />
       <div className='btnContainer'>
         <Link to="/Community"> <CommunityMenu /> </Link>
-        <Link to="/Schedule">  <RecordMenu /> </Link>
+        <RecordMenu />
         <Link to="/TeamInfo"><TeamMenu /></Link>
-        <Link to="/Dict"> <DictMainMenu /> </Link>
+        <DictMainMenu />
       </div>
     </div >
   );

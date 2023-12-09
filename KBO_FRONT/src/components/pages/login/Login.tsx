@@ -1,62 +1,79 @@
-import React,{useState, FormEvent} from 'react';
-import {LoginForm,Title,Inputs,Input,Conditions,LoginButton,Loginbox} from "./StyleLogin"
-import { useNavigate} from "react-router-dom";
+import React,{useState} from 'react';
+import KaKao from '../../../images/kakao_login_large_narrow.png';
+import { Link } from "react-router-dom";
+import {LoginForm,Title,Input,KakaoLogin,LoginSuccess,MainButton,Sign,Sign1,StyledKaKao,NextButton,Loginbox} from "./StyleLogin"
 
 export default function Login() {
-
-  const navigate = useNavigate();
+  const [step, setStep] = useState(1);
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const navigateToLogin = () => {
-    navigate("/LoginNext");
+
+
+  const handleNext = () => {
+    setStep(step + 1);
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-     
-     if (username === 'ID' && password === 'PassWord') {
-      navigateToLogin();
-    } else {
-      alert('잘못된 ID 또는 PassWord');
-    }
-
-  };
-  
   return (
     <div>
 
       <Title> <a href="/Login">Login</a> </Title>
       <LoginForm>
+      {step === 1 && (
+        <>
        <Loginbox>
-        <form onSubmit={handleSubmit}>
-          <Inputs>
+            <Sign1>
+             STEP1
+             <br/>
+             카카오톡으로 로그인 해주세요
+            </Sign1>
+              <KakaoLogin>
+                <Link to="http://127.0.0.1:8000/kakaoLoginLogic">
+                  <StyledKaKao src={KaKao} alt="카카오톡 로그인" />
+                </Link>
+              </KakaoLogin>
+
+              <div className="nextbut">
+              <NextButton onClick={handleNext}>다음</NextButton>
+              </div>
+      </Loginbox>
+        </>
+    )}
+          
+   {step === 2 && (
+            <Loginbox>
+            <Sign>
+               STEP2 
+               <br/>
+               사용할 닉네임 입력해주세요
+             </Sign>
+          
             <Input
               type="text"
-              className="id"
-              placeholder="아이디(이메일) 입력"
+              placeholder="닉네임 입력"
               autoComplete="off"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <Input
-              type="password"
-              className="pw"
-              placeholder="비밀번호 입력"
-              autoComplete="off"
-              required
-              value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-          </Inputs>
-        
-        <Conditions>
-          <h6>대소문자 • 숫자 8~20자 이내</h6>
-        </Conditions>
-        <LoginButton type="submit" >로그인하기</LoginButton>
-        </form>
+
+             <div className="nextbut">
+              <NextButton onClick={handleNext}>다음</NextButton>
+            </div>
+
         </Loginbox>
+    )}
+  
+    {step === 3 && (
+          <Loginbox>
+            <LoginSuccess>로그인 성공!</LoginSuccess>
+            <div className="nextbut">
+              <MainButton>
+                <Link to="/">홈으로</Link>
+              </MainButton>
+            </div>
+          </Loginbox>
+    )}
+
       </LoginForm>
     </div>
   );
