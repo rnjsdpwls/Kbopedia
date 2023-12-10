@@ -1,6 +1,6 @@
 import React from 'react';
 import gameResultsData from '../../../db/gameResults.json';
-import { TimeA, Same, Time, Above, TeamandScore, CellD, Hline, HrB} from './GameResultsTableA';
+import { TimeA, Same, Time, Above, TeamandScore, CellD, Hline, HrB, StyledContainer, StyleDiv, StyledContainerbig} from './GameResultsTableA';
 interface GameResult {
   date: string;
   time: string;
@@ -39,15 +39,15 @@ function GameResultsTable() {
       {/* Results */}
       {gameResults.map((result: GameResult, resultIndex: number) => (
         <div key={resultIndex}>
-          <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row' }}>
-            <div key={resultIndex} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <StyledContainerbig>
+            <StyleDiv key={resultIndex}>
               <p>{result.date}</p>
-            </div>
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
+            </StyleDiv>
+        <StyledContainer>
           <CellD>
             <Time>{result.time}</Time>
             <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
-           <TeamandScore>{result.stadium}</TeamandScore>
+            <TeamandScore>{result.stadium}</TeamandScore>
           </CellD> 
 
           <HrB></HrB>   {/* 초록색 */}
@@ -57,12 +57,11 @@ function GameResultsTable() {
             <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
             <TeamandScore>{result.stadium}</TeamandScore>
           </CellD>
-          </div>
-        </div>
+        </StyledContainer>
+      </StyledContainerbig>
 
     <Hline></Hline>
 
-     
 
   
   </div> 
@@ -74,5 +73,6 @@ function GameResultsTable() {
 }
 
 export default GameResultsTable;
+
 
 
