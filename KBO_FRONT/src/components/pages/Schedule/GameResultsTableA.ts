@@ -41,17 +41,34 @@ export const TeamandScore = gameresults.p`
 export const Hline = gameresults.hr`
     width: 1300px;
     height: 2px;
-    border: 1;
-    backgroundColor: green;
+    border-color: green;
+    
 `
 export const HrB  = gameresults.hr`
     width: 1000px;
     height: 2px;
-    border: 1;
-    backgroundColor: green;
+    border-color: green;
+   
 `
 export const Above = gameresults.div`
     margin: 0 auto;
     display: flex;
     flexDirection: row;
+`
+export const StyledContainer = gameresults.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+`
+
+export const StyleDiv = gameresults.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center
+`
+export const StyledContainerbig = gameresults.div`
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
 `
