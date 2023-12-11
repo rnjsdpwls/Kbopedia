@@ -1,6 +1,7 @@
 import React from 'react';
 import gameResultsData from '../../../db/gameResults.json';
-import { TimeA, Same, Time, Above, TeamandScore, CellD, Hline, HrB, StyledContainer, StyleDiv, StyledContainerbig} from './GameResultsTableA';
+import { TimeA, Same, Time, Above, TeamandScore, CellD, Hline, HrB, StyledContainer, StyleDiv, StyledContainerbig } from './GameResultsTableA';
+
 interface GameResult {
   date: string;
   time: string;
@@ -34,7 +35,7 @@ function GameResultsTable() {
       {/* Set the headerDisplayed flag to true after displaying the header */}
       {!headerDisplayed && (headerDisplayed = true)}
 
-      <Hline></Hline> 
+      <Hline></Hline>
 
       {/* Results */}
       {gameResults.map((result: GameResult, resultIndex: number) => (
@@ -43,36 +44,28 @@ function GameResultsTable() {
             <StyleDiv key={resultIndex}>
               <p>{result.date}</p>
             </StyleDiv>
-        <StyledContainer>
-          <CellD>
-            <Time>{result.time}</Time>
-            <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
-            <TeamandScore>{result.stadium}</TeamandScore>
-          </CellD> 
+            <StyledContainer>
+              <CellD>
+                <Time>{result.time}</Time>
+                <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
+                <TeamandScore>{result.stadium}</TeamandScore>
+              </CellD>
 
-          <HrB></HrB>   {/* 초록색 */}
+              <HrB></HrB> {/* 초록색 */}
 
-          <CellD>
-            <Time>{result.time}</Time>
-            <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
-            <TeamandScore>{result.stadium}</TeamandScore>
-          </CellD>
-        </StyledContainer>
-      </StyledContainerbig>
+              {/* Render the content only once for each game */}
+            </StyledContainer>
+          </StyledContainerbig>
 
-    <Hline></Hline>
-
-
-  
-  </div> 
- 
- ))}
+          <Hline></Hline>
+        </div>
+      ))}
     </div>
-   
   );
 }
 
 export default GameResultsTable;
+
 
 
 
