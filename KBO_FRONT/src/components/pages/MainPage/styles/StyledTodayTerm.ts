@@ -16,7 +16,7 @@ export const Spacing = styled.hr`
 
 export const Title = styled.p`
   font-size: 70px;
-  margin: 50px 0 10px;
+  margin: 100px 0 10px;
 `;
 
 export const TermContainer = styled.div`

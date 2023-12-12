@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const TeamContainer = styled.div`
-  text-align: center;
-  position: relative;
-  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 80px 0;
 `;
 
 export const TeamInfoMainTitle = styled.div`
@@ -11,35 +14,27 @@ export const TeamInfoMainTitle = styled.div`
 `;
 
 export const Info = styled.p`
-  float: right;
+  margin-left: 45%;
   font-size: 11px;
   color: gray;
 `;
 
 export const TeamTable = styled.ul`
   display: flex;
+  margin-top: 80px;
   justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 20px;
 `;
 
 export const TeamTableTitle = styled.ul`
   color: #5c9b57;
   font-size: 20px;
-  width: 150px;
+  width: 200px;
 `;
 
-export const TeamTableContainer = styled.ul`
-  justify-content: center;
-  text-align: center;
-  text-align: center;
-`;
+export const TeamTableContainer = styled.ul``;
 
 export const TeamTableItem = styled.li`
-  display: flex;
-  text-align: center;
-  width: 150px;
-  white-space: pre-wrap;
+  width: 200px;
 `;
 
 export const HoverableTeamTableItem = styled(TeamTableItem)`
@@ -50,9 +45,7 @@ export const HoverableTeamTableItem = styled(TeamTableItem)`
 `;
 
 export const Spacing = styled.hr`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 800px;
+  margin: 15px 0;
 `;
+
+export const StyledTeamDetail = styled.span``;
