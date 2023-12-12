@@ -15,45 +15,57 @@ interface GameResult {
 function GameResultsTable() {
   const gameResults = gameResultsData.gameResults;
 
+  // Group game results by date
+  const resultsByDate: { [date: string]: GameResult[] } = {};
+
+  gameResults.forEach((result) => {
+    if (!resultsByDate[result.date]) {
+      resultsByDate[result.date] = [];
+    }
+    resultsByDate[result.date].push(result);
+  });
+
   // Initialize a flag to track whether the header has been displayed
   let headerDisplayed = false;
 
   return (
     <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '200px' }}>
-      <Hline></Hline>
+      {Object.keys(resultsByDate).map((date, dateIndex) => (
+        <div key={dateIndex}>
+          <Hline></Hline>
 
-      {/* Header Row */}
-      {!headerDisplayed && (
-        <Above>
-          <TimeA>날짜</TimeA>
-          <Same>시간</Same>
-          <Same>경기</Same>
-          <Same>구장</Same>
-        </Above>
-      )}
+          {/* Header Row */}
+          {!headerDisplayed && (
+            <Above>
+              <TimeA>날짜</TimeA>
+              <Same>시간</Same>
+              <Same>경기</Same>
+              <Same>구장</Same>
+            </Above>
+          )}
 
-      {/* Set the headerDisplayed flag to true after displaying the header */}
-      {!headerDisplayed && (headerDisplayed = true)}
+          {/* Set the headerDisplayed flag to true after displaying the header */}
+          {!headerDisplayed && (headerDisplayed = true)}
 
-      <Hline></Hline>
+          <Hline></Hline>
 
-      {/* Results */}
-      {gameResults.map((result: GameResult, resultIndex: number) => (
-        <div key={resultIndex}>
-          <StyledContainerbig>
-            <StyleDiv key={resultIndex}>
-              <p>{result.date}</p>
+          {/* Results for the current date */}
+          <StyledContainerbig key={dateIndex}>
+            <StyleDiv>
+              <p>{date}</p>
             </StyleDiv>
             <StyledContainer>
-              <CellD>
-                <Time>{result.time}</Time>
-                <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
-                <TeamandScore>{result.stadium}</TeamandScore>
-              </CellD>
+              {resultsByDate[date].map((result: GameResult, resultIndex: number) => (
+                <div key={resultIndex}>
+                  <CellD>
+                    <Time>{result.time}</Time>
+                    <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
+                    <TeamandScore>{result.stadium}</TeamandScore>
+                  </CellD>
 
-              <HrB></HrB> {/* 초록색 */}
-
-              {/* Render the content only once for each game */}
+                  <HrB></HrB> {/* 초록색 */}
+                </div>
+              ))}
             </StyledContainer>
           </StyledContainerbig>
 
@@ -65,6 +77,8 @@ function GameResultsTable() {
 }
 
 export default GameResultsTable;
+
+
 
 
 
