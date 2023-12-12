@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, TeamName, StyledTeamDetail, StyledImage, LineSpacing, LogoImagePosition, PropsContainer, StyledForUrl } from './StyledTeamItems';
+import { Container, TeamName, StyledTeamDetail, StyledImage, LineSpacing, LogoImagePosition, PropsContainer, StyledForUrl, BtnNext, BtnContainer, Info } from './StyledTeamItems';
 import LogoImages from './LogoImages';
 import dummy from '../../../db/teamData.json';
 
@@ -56,6 +56,10 @@ export default function TeamItems({ newId }: TeamItemsProps) {
           </StyledTeamDetail>
         </PropsContainer>
       </Container>
+      <BtnContainer>
+        <Info>{teamData.teamName} 응원가 바로 가기 👉 </Info>
+        <BtnNext>NEXT</BtnNext>
+      </BtnContainer>
     </div>
   );
 }

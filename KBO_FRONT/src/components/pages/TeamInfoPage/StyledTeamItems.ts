@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 export const TeamName = styled.div`
@@ -53,4 +54,27 @@ export const LogoImagePosition = styled.div`
 
 export const PropsContainer = styled.div`
   display: flex;
+`;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  margin-bottom: 100px;
+`;
+
+export const Info = styled.p`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-right: 10px;
+`;
+
+export const BtnNext = styled.button`
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  align-items: center;
+  background-color: pink;
+  border-radius: 10px;
 `;
