@@ -31,7 +31,7 @@ export default function Content() {
   const fetchData = () => {
     setLoading(true);
     axios
-      .get(`http://127.0.0.1:8000/api/${id}/`)
+      .get(`http://127.0.0.1:8000/${id}`)
       .then((response) => {
         setData(response.data);
         setEditableData(response.data);
@@ -45,7 +45,7 @@ export default function Content() {
 
   const handleDelete = () => {
     axios
-      .delete(`http://127.0.0.1:8000/api/${id}/`)
+      .delete(`http://127.0.0.1:8000/${id}`)
       .then(() => {
         console.log("삭제 성공");
         navigate("/community");
@@ -61,7 +61,7 @@ export default function Content() {
 
   const handleUpdate = () => {
     axios
-      .put(`http://127.0.0.1:8000/api/${id}/`, editableData)
+      .put(`http://127.0.0.1:8000/${id}`, editableData)
       .then(() => {
         console.log("수정 성공");
         fetchData(); // 수정 후 데이터 다시 불러오기

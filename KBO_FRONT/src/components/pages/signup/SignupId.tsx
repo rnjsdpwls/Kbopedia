@@ -8,7 +8,10 @@ const Signup: React.FC = () => {
   const [step, setStep] = useState(1);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const handleLogin = () => {
+    // 특정 링크로 리다이렉트
+    window.location.href = 'http://127.0.0.1:8000/kakaoLoginLogic';
+  };
   const handleNext = () => {
     setStep(step + 1);
   };
@@ -20,7 +23,6 @@ const Signup: React.FC = () => {
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
-
   return (
     <div>
       <Title>Create your account!</Title>
@@ -50,9 +52,7 @@ const Signup: React.FC = () => {
               </div>
 
               <KakaoLogin>
-                <Link to="/">
-                  <StyledKaKao src={KaKao} alt="카카오톡 로그인" />
-                </Link>
+                  <StyledKaKao onClick={handleLogin} src={KaKao} alt="카카오톡 로그인" />
               </KakaoLogin>
             </Loginbox>
           </>

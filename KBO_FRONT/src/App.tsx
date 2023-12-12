@@ -14,7 +14,6 @@ import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
 import MainInfo from "./components/pages/MainPage/components/MainInfo";
 import Content from "./components/pages/CommunityPage/Content";
-import GameResultsTable from './components/pages/Schedule/GameResultsTable';
 
 function App() {
   return (
@@ -35,7 +34,6 @@ function App() {
         <Route path="/TeamItems/:id" element={<TeamItems />} />
         <Route path="/Dict" element={<Dict />}></Route>
         <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
-        <Route path="/GameResultsTable" element={<GameResultsTable />} />
       </Routes>
     </div >
   );

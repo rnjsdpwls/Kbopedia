@@ -27,7 +27,7 @@ export default function Login() {
              카카오톡으로 로그인 해주세요
             </Sign1>
               <KakaoLogin>
-                <Link to="/">
+                <Link to="http://127.0.0.1:8000/kakaoLoginLogic">
                   <StyledKaKao src={KaKao} alt="카카오톡 로그인" />
                 </Link>
               </KakaoLogin>
