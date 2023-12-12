@@ -41,16 +41,15 @@ export const QuizLevelBut = styled.button`
     color: #E98B35;
   }
   
-
-
-
   
 `;
 export const QuizTitle = styled.div`
   display: flex;
+  textAlign: 'left' 
   justify-content: center;
-  margin-top: 50px;
-  font-size: 30px;
+  margin: 30px -10px  10px;
+  font-size: 15px;
+  
 `;
 export const QuizLevelContainer = styled.div`
   display: flex;
