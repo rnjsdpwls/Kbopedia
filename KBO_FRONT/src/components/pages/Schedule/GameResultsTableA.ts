@@ -71,4 +71,6 @@ export const StyledContainerbig = gameresults.div`
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 `
