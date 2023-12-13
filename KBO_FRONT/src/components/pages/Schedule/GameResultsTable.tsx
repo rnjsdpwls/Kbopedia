@@ -29,10 +29,10 @@ function GameResultsTable() {
   let headerDisplayed = false;
 
   return (
-    <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '200px' }}>
-      {Object.keys(resultsByDate).map((date, dateIndex) => (
-        <div key={dateIndex}>
-          <Hline></Hline>
+    <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '80px', marginBottom: '90px' }}>
+    {Object.keys(resultsByDate).map((date, dateIndex) => (
+      <div key={dateIndex}>
+        {dateIndex === 0 && <Hline></Hline>}
 
           {/* Header Row */}
           {!headerDisplayed && (
@@ -63,13 +63,13 @@ function GameResultsTable() {
                     <TeamandScore>{result.stadium}</TeamandScore>
                   </CellD>
 
-                  <HrB></HrB> {/* 초록색 */}
+                  {resultIndex !== resultsByDate[date].length - 1 && <HrB></HrB>} {/* 맨 마지막 아이템이 아닌 경우에만 초록색 선을 렌더링 */}
                 </div>
               ))}
             </StyledContainer>
           </StyledContainerbig>
 
-          <Hline></Hline>
+         
         </div>
       ))}
     </div>
