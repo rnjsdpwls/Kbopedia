@@ -4,7 +4,7 @@ export const QuizContainer = styled.div`
   text-align: center;
   justify-content: center;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
@@ -13,8 +13,8 @@ export const QuizContainer = styled.div`
 export const QuizMainTitle = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  font-size: 150px;
+  margin-top: 80px;
+  font-size: 120px;
 `;
 
 export const Intro = styled.p`
@@ -29,9 +29,9 @@ export const QuizLevelBut = styled.button`
   background-color: #E9D735;
   position: relative;
   border-radius: 10px;
-  width: 300px;
-  height: 100px;
-  font-size: 55px;
+  width: 270px;
+  height: 80px;
+  font-size: 50px;
   color: white;
   margin: 50px 10px 0 50px;
   transition: all 0.1s;
@@ -43,6 +43,20 @@ export const QuizLevelBut = styled.button`
   
   
 `;
+
+
+export const QuizLevel = styled.div`
+  background-color: #61a063;
+  position: relative;
+  border-radius: 10px;
+  width: 300px;
+  height: 50px;
+  font-size: 60px;
+  color: white;
+  padding:4px;
+
+`;
+
 export const QuizTitle = styled.div`
   display: flex;
   textAlign: 'left' 

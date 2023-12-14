@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, AnswerButton, QuizAnswer, QuizBox, QuizTitle, QuizOption } from "./StyleQuiz";
 import QuizDummy from '../../../db/quizData.json';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 type QuizData = {
   id: number;
@@ -14,20 +14,31 @@ type QuizParams = {
   id: string;
 };
 
+
+const findQuizById = (id: number) => {
+  const quizBasic = QuizDummy.quizbasic.find((item) => item.id === id);
+  const quizDeep = QuizDummy.quizdeep.find((item) => item.id === id);
+
+  return quizBasic || quizDeep || undefined;
+};
+
 export default function Quiz() {
   const { id } = useParams<QuizParams>();
   const quizId = id ? parseInt(id, 10) : undefined;
 
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
-  const quiz: QuizData | undefined = quizId ? QuizDummy.quizbasic.find((item) => item.id === quizId) : undefined;
 
+  const quiz: QuizData | undefined = quizId ? findQuizById(quizId) : undefined;
+
+  const navigate = useNavigate();
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
   };
 
   const handleConfirm = () => {
     setSelectedAnswer(null);
+    navigate(-1);
   };
 
   return (
@@ -38,15 +49,19 @@ export default function Quiz() {
         <div>
           <QuizBox>{quiz.question}</QuizBox>
 
-          {quiz.options.map((option, index) => (
-            <QuizOption
-              key={index}
-              onClick={() => handleAnswerSelect(option)}
-              style={{ cursor: 'pointer', fontWeight: selectedAnswer === option ? 'bold' : 'normal' }}
-            >
-              {option}
-            </QuizOption>
-          ))}
+          {quiz.options.map((option) => {
+  const fontSize = Math.max(24, 38 - option.length); // Adjust the minimum font size as needed
+  return (
+    <QuizOption
+      key={option}
+      fontSize={fontSize}
+      onClick={() => handleAnswerSelect(option)}
+      style={{ cursor: 'pointer', fontWeight: selectedAnswer === option ? 'bold' : 'normal' }}
+    >
+      {option}
+    </QuizOption>
+  );
+})}
         </div>
       )}
 
@@ -66,6 +81,4 @@ export default function Quiz() {
       )}
     </Container>
   );
-};
-
-
+}
