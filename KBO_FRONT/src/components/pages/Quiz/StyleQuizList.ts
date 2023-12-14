@@ -45,16 +45,17 @@ export const QuizLevelBut = styled.button`
 `;
 
 
-export const QuizLevel = styled.div`
+export const QuizLeveltitle = styled.div`
   background-color: #61a063;
-  position: relative;
   border-radius: 10px;
-  width: 300px;
-  height: 50px;
+  width: 400px;
+  height: 100px;
   font-size: 60px;
   color: white;
-  padding:4px;
-
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const QuizTitle = styled.div`

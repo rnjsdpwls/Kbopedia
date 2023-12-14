@@ -1,4 +1,4 @@
-import { QuizContainer, QuizTitle, QuizLevel } from './StyleQuizList';
+import { QuizContainer, QuizTitle, QuizLeveltitle } from './StyleQuizList';
 import QuizDummy from '../../../db/quizData.json';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ export default function QuizPage({ level }: QuizPageProps) {
 
   return (
     <QuizContainer>
-      <QuizLevel style={{ fontSize: '40px' }}>{levelText} 문제 </QuizLevel>
+      <QuizLeveltitle style={{ fontSize: '40px' }}>{levelText} 문제 </QuizLeveltitle>
       {quizzes.map((quiz: QuizData) => (
         <div key={quiz.id} style={{ borderBottom: '2px solid' }}>
           <Link to={`/Quiz/${quiz.id}`}>
