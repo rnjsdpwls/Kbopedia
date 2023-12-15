@@ -33,7 +33,7 @@ export default function QuizList() {
           <Link to="/quiz/basic">
             <QuizLevelBut onClick={() => handleLevelChange('quizbasic')}>Level 1</QuizLevelBut>
           </Link>
-
+           
           <Link to="/quiz/deep">
             <QuizLevelBut onClick={() => handleLevelChange('quizdeep')}>Level 999</QuizLevelBut>
           </Link>

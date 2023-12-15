@@ -52,8 +52,7 @@ export const QuizOption = styled.div<{ fontSize: number }>`
   width: 425px;
   height: 68px;
   border-radius: 20px;
-  
-  
+  padding: 10px;
   
 `;
 
