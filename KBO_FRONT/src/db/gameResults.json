@@ -110,6 +110,16 @@
             "score1": 9,
             "score2": 2,
             "stadium": "잠실"
+          },
+
+          {
+            "date": "10월4일",
+            "time": "18:00",
+            "team1": "삼성",
+            "team2": "한화",
+            "score1": 6,
+            "score2": 2,
+            "stadium": "문학"
           }
 
 
