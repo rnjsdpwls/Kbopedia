@@ -12,6 +12,7 @@ import Dict from "./components/pages/DictPage/Dict";
 import MainInfo from "./components/pages/MainPage/components/MainInfo";
 import Content from "./components/pages/CommunityPage/Content";
 import GameResultsTable from './components/pages/Schedule/GameResultsTable';
+import CheerPage from "./components/pages/TeamInfoPage/CheerPage/CheerPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Dict" element={<Dict />}></Route>
         <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
         <Route path="/GameResultsTable" element={<GameResultsTable />} />
+        <Route path="/TeamItems/:id/cheers" element={<CheerPage />} />
       </Routes>
     </div >
   );
