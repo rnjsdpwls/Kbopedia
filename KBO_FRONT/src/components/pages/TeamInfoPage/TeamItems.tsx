@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Container, TeamName, StyledTeamDetail, StyledImage, LineSpacing, LogoImagePosition, PropsContainer, StyledForUrl, BtnNext, BtnContainer, Info } from './StyledTeamItems';
 import LogoImages from './LogoImages';
 import dummy from '../../../db/teamData.json';
@@ -20,6 +20,7 @@ type TeamItemsProps = {
 };
 
 export default function TeamItems({ newId }: TeamItemsProps) {
+  const navigate = useNavigate();
   const { id } = useParams<{ id?: string }>();
   const [teamId, setTeamId] = useState(newId || (id ? parseInt(id, 10) : null));
   const teamData: TeamData | undefined = dummy.team.find((item) => item.id === teamId);
@@ -30,6 +31,11 @@ export default function TeamItems({ newId }: TeamItemsProps) {
 
   const handleTeamClick = (newId: number) => {
     setTeamId(newId);
+  };
+
+  const handleBtnNextClick = () => {
+    // BtnNext를 눌렀을 때 경로를 변경
+    navigate(`/TeamItems/${teamData.id}/cheers`);
   };
 
   return (
@@ -58,7 +64,7 @@ export default function TeamItems({ newId }: TeamItemsProps) {
       </Container>
       <BtnContainer>
         <Info>{teamData.teamName} 응원가 바로 가기 👉 </Info>
-        <BtnNext>NEXT</BtnNext>
+        <BtnNext onClick={handleBtnNextClick}>NEXT</BtnNext>
       </BtnContainer>
     </div>
   );
