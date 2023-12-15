@@ -30,9 +30,10 @@ function GameResultsTable() {
 
   return (
     <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '80px', marginBottom: '90px' }}>
-    {Object.keys(resultsByDate).map((date, dateIndex) => (
-      <div key={dateIndex}>
-        {dateIndex === 0 && <Hline></Hline>}
+      <h1 style={{ textAlign: 'center', color: 'green' }}>경기/결과 페이지</h1>
+      {Object.keys(resultsByDate).map((date, dateIndex) => (
+        <div key={dateIndex}>
+          {dateIndex === 0 && <Hline></Hline>}
 
           {/* Header Row */}
           {!headerDisplayed && (
@@ -59,17 +60,28 @@ function GameResultsTable() {
                 <div key={resultIndex}>
                   <CellD>
                     <Time>{result.time}</Time>
-                    <TeamandScore>{`${result.team1} ${result.score1} vs ${result.team2} ${result.score2}`}</TeamandScore>
+                    <TeamandScore>
+                      <span style={{ color: result.score1 > result.score2 ? 'red' : 'black' }}>
+                        {result.team1}
+                      </span>
+                      {` `}
+                      <span style={{ color: result.score1 > result.score2 ? 'red' : 'black' }}>
+                        {result.score1}
+                      </span>
+                      {` vs `}
+                      <span style={{ color: result.score2 > result.score1 ? 'red' : 'black' }}>
+                        {`${result.team2} ${result.score2}`}
+                      </span>
+                    </TeamandScore>
                     <TeamandScore>{result.stadium}</TeamandScore>
                   </CellD>
 
-                  {resultIndex !== resultsByDate[date].length - 1 && <HrB></HrB>} {/* 맨 마지막 아이템이 아닌 경우에만 초록색 선을 렌더링 */}
+                  {resultIndex !== resultsByDate[date].length - 1 && <HrB></HrB>}
+                  {/* 맨 마지막 아이템이 아닌 경우에만 초록색 선을 렌더링 */}
                 </div>
               ))}
             </StyledContainer>
           </StyledContainerbig>
-
-         
         </div>
       ))}
     </div>
@@ -77,9 +89,3 @@ function GameResultsTable() {
 }
 
 export default GameResultsTable;
-
-
-
-
-
-
