@@ -7,6 +7,7 @@ import {
   StyledPosts,
   StyledTitle,
 } from "./StyledCommunity";
+import { Input, StyledContent, StyledTable } from "../Posting/StyledPosting";
 
 interface DataItem {
   title: string;
@@ -14,6 +15,7 @@ interface DataItem {
 }
 
 export default function Content() {
+  const [kakaoNickname, setKakaoNickname] = useState<string>('');
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(true);
@@ -23,6 +25,10 @@ export default function Content() {
     content: "",
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  // const storedNickname = localStorage.getItem('kakao_nickname');
+  // if (storedNickname) {
+  //   setKakaoNickname(storedNickname);
+  // }
 
   useEffect(() => {
     fetchData();
@@ -30,6 +36,10 @@ export default function Content() {
 
   const fetchData = () => {
     setLoading(true);
+    const storedNickname = localStorage.getItem('kakao_nickname');
+        if (storedNickname) {
+            setKakaoNickname(storedNickname);
+        }
     axios
       .get(`http://127.0.0.1:8000/${id}`)
       .then((response) => {
@@ -95,24 +105,63 @@ export default function Content() {
         <div>
           {isEditing ? (
             <div>
-              <label>
-                제목:
-                <input
-                  type="text"
-                  value={editableData.title}
-                  onChange={handleTitleChange}
-                />
-              </label>
-              <br />
-              <label>
-                내용:
-                <textarea
-                  value={editableData.content}
-                  onChange={handleContentChange}
-                />
-              </label>
-              <br />
-              <StyledPostBtn onClick={handleUpdate}>수정 완료</StyledPostBtn>
+              <StyledTable>
+                <thead>
+                    <tr id='head'>
+                        <th>글 작성</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>제목</td>
+                        <td className='userInput' colSpan={3}><Input
+                            type="text"
+                            name="title"
+                            value={editableData.title}
+                            onChange={handleTitleChange}
+                            placeholder='제목을 입력하세요.'
+                        />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='title'>글쓴이</td>
+                        <td className='nickname'>{kakaoNickname || '익명'}</td>
+                        <td className='title'>응원구단</td>
+                        <td>
+                            <select style={{ width: 80, height: 30, textAlign: 'center' }}>
+                                <option>구단 선택</option>
+                                <option value={"LG"}>LG</option>
+                                <option value={"두산"}>두산</option>
+                                <option value={"키움"}>키움</option>
+                                <option value={"롯데"}>롯데</option>
+                                <option value={"삼성"}>삼성</option>
+                                <option value={"SSG"}>SSG</option>
+                                <option value={"KT"}>KT</option>
+                                <option value={"한화"}>한화</option>
+                                <option value={"NC"}>NC</option>
+                                <option value={"기아"}>기아</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id='content'>내용</td>
+                        <td className='userInput' colSpan={3}>
+                            <StyledContent>
+                                <textarea
+                                    name="content"
+                                    value={editableData.content}
+                                    onChange={handleContentChange}
+                                    placeholder='내용을 입력하세요.'
+                                />
+                            </StyledContent>
+                        </td>
+                    </tr>
+                </tbody>
+            </StyledTable>
+              <PostBtnPosition>
+                <StyledPostBtn onClick={handleUpdate}>수정 완료</StyledPostBtn>
+              </PostBtnPosition>
             </div>
           ) : (
             <div>

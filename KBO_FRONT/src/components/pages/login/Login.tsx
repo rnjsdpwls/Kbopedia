@@ -1,81 +1,32 @@
-import React,{useState} from 'react';
 import KaKao from '../../../images/kakao_login_large_narrow.png';
 import { Link } from "react-router-dom";
-import {LoginForm,Title,Input,KakaoLogin,LoginSuccess,MainButton,Sign,Sign1,StyledKaKao,NextButton,Loginbox} from "./StyleLogin"
+import { LoginForm, Title, StyledKaKao, Loginbox, Sign1, KakaoLogin } from "./StyleLogin"
 
 export default function Login() {
-  const [step, setStep] = useState(1);
-  const [username, setUsername] = useState('');
+  const client_id = process.env.REACT_APP_CLIENT;
+  const redirect_uri = process.env.REACT_APP_REDIRECT;
 
+  const handleKakaoLogin = async () => {
 
-
-  const handleNext = () => {
-    setStep(step + 1);
-  };
+    console.log(client_id)
+    console.log(redirect_uri)
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
+  }
 
   return (
     <div>
-
-      <Title> <a href="/Login">Login</a> </Title>
+      <Title><Link to={'/login'}>Login</Link> </Title>
       <LoginForm>
-      {step === 1 && (
-        <>
-       <Loginbox>
-            <Sign1>
-             STEP1
-             <br/>
-             카카오톡으로 로그인 해주세요
-            </Sign1>
-              <KakaoLogin>
-                <Link to="http://127.0.0.1:8000/kakaoLoginLogic">
-                  <StyledKaKao src={KaKao} alt="카카오톡 로그인" />
-                </Link>
-              </KakaoLogin>
-
-              <div className="nextbut">
-              <NextButton onClick={handleNext}>다음</NextButton>
-              </div>
-      </Loginbox>
-        </>
-    )}
-          
-   {step === 2 && (
-            <Loginbox>
-            <Sign>
-               STEP2 
-               <br/>
-               사용할 닉네임 입력해주세요
-             </Sign>
-          
-            <Input
-              type="text"
-              placeholder="닉네임 입력"
-              autoComplete="off"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-
-             <div className="nextbut">
-              <NextButton onClick={handleNext}>다음</NextButton>
-            </div>
-
+        <Loginbox>
+          <Sign1>
+            <br />
+            카카오톡으로 로그인 해주세요
+          </Sign1>
+          <KakaoLogin>
+            <StyledKaKao src={KaKao} alt="카카오톡 로그인" onClick={handleKakaoLogin} />
+          </KakaoLogin>
         </Loginbox>
-    )}
-  
-    {step === 3 && (
-          <Loginbox>
-            <LoginSuccess>로그인 성공!</LoginSuccess>
-            <div className="nextbut">
-              <MainButton>
-                <Link to="/">홈으로</Link>
-              </MainButton>
-            </div>
-          </Loginbox>
-    )}
-
       </LoginForm>
     </div>
   );
-
 }

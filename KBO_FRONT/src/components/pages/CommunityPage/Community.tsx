@@ -23,6 +23,8 @@ interface DataItem {
   created_at : string;
   updated_at : string;
   count: number;
+  nickname : string;
+
 }
 
 export default function Community() {
@@ -138,7 +140,7 @@ export default function Community() {
                 <tr key={index}>
                   <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.id}</Link></td>
                   <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.title}</Link></td>
-                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.name}</Link></td>
+                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.nickname}</Link></td>
                   <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{formatDate(item.created_at)}</Link></td>
                   <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.count}</Link></td>
                 </tr>

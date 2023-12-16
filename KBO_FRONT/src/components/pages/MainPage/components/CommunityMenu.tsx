@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/CommunityMenu.css';
 import ball from '../../../../images/ball.png';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 interface DropdownItemProps {
   text: string;
 }
+
+const isLoggedIn = localStorage.getItem('access_token') !== null;
 
 const DropdownItem = (props: DropdownItemProps) => {
   return (

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import GlobalHeader from './components/Header/GlobalHeader';
 import GlobalFooter from "./components/Footer/GlobalFooter";
 import Community from "./components/pages/CommunityPage/Community";
@@ -11,9 +11,14 @@ import TeamItems from "./components/pages/TeamInfoPage/TeamItems";
 import Dict from "./components/pages/DictPage/Dict";
 import MainInfo from "./components/pages/MainPage/components/MainInfo";
 import Content from "./components/pages/CommunityPage/Content";
+import UserProfile from "./components/pages/login/LoginComponent";
+import { RecoilRoot } from "recoil";
 
 function App() {
+  const isLoggedIn = localStorage.getItem('access_token') !== null;
   return (
+    <RecoilRoot>
+
     <div className="App">
       <GlobalHeader />
       <Routes>
@@ -21,8 +26,9 @@ function App() {
         <Route path="/Community" element={<Community />}></Route>
         <Route path="/Content/:id" element={<Content />}></Route>
         <Route path="/Login" element={<Login />}></Route>
+        <Route path="/LoginComponent" element={<UserProfile />}></Route>
         <Route path="/Quiz" element={<Quiz />}></Route>
-        <Route path="/Posting" element={<Posting />}></Route>
+        <Route path="/Posting" element={isLoggedIn ? <Posting /> : <Navigate to= "/Login" />}></Route>
         <Route path="/MainInfo" element={<MainInfo />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems/:id" element={<TeamItems />} />
@@ -30,6 +36,7 @@ function App() {
         <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
       </Routes>
     </div >
+    </RecoilRoot>
   );
 }
 
