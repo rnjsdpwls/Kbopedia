@@ -6,12 +6,31 @@ export const Title = styled.h2`
   margin-top: 30px;
 `;
 
-export const BtnContainer = styled.div`
+export const BtnSortContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 `;
 
-export const BtnSort = styled.button`
+export const NextPageInfo = styled.p`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-right: 10px;
+`;
+
+export const BtnNext = styled.button`
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  align-items: center;
+  background-color: pink;
+  border-radius: 10px;
+`;
+
+export const BtnSort = styled.button<{ handleSortTypeClick: boolean }>`
+  background-color: ${({ handleSortTypeClick }) => (handleSortTypeClick ? "#61a063" : "#c6dfc4")};
+  color: ${({ handleSortTypeClick }) => (handleSortTypeClick ? "white" : "initial")};
   position: relative;
   border-radius: 10px;
   width: 100px;
@@ -26,6 +45,12 @@ export const BtnSort = styled.button`
     background-color: #61a063;
     color: white;
   }
+`;
+
+export const BtnPrevContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 `;
 
 export const Info = styled.div`
@@ -43,8 +68,7 @@ export const CheersListContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  // margin: 80px 0;
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
 export const CheerTitle = styled.li`
@@ -60,4 +84,12 @@ export const CheerLyrics = styled.p`
   color: gray;
   margin-top: 10px;
   font-size: 14px;
+`;
+
+export const BtnMoveTop = styled.button`
+  float: right;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  color: #5c9b57;
+  font-size: 37px;
 `;

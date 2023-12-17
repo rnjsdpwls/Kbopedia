@@ -34,10 +34,10 @@ function App() {
         <Route path="/MainInfo" element={<MainInfo />}></Route>
         <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
         <Route path="/TeamItems/:id" element={<TeamItems />} />
+        <Route path="/TeamItems/:id/cheers" element={<CheerPage />} />
         <Route path="/Dict" element={<Dict />}></Route>
         <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
         <Route path="/GameResultsTable" element={<GameResultsTable />} />
-        <Route path="/TeamItems/:id/cheers" element={<CheerPage />} />
       </Routes>
     </div >
   );
