@@ -1,4 +1,5 @@
 import React from 'react';
+import GlobalStyles from './GlobalStyles';
 import gameResultsData from '../../../db/gameResults.json';
 import { TimeA, Same, Time, Above, TeamandScore, CellD, Hline, HrB, StyledContainer, StyleDiv, StyledContainerbig } from './GameResultsTableA';
 
@@ -29,62 +30,64 @@ function GameResultsTable() {
   let headerDisplayed = false;
 
   return (
-    <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '80px', marginBottom: '90px' }}>
-      <h1 style={{ textAlign: 'center', color: 'green' }}>경기/결과 페이지</h1>
-      {Object.keys(resultsByDate).map((date, dateIndex) => (
-        <div key={dateIndex}>
-          {dateIndex === 0 && <Hline></Hline>}
+    <>
+      <GlobalStyles />
+      <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '80px', marginBottom: '90px'}}>
+        {Object.keys(resultsByDate).map((date, dateIndex) => (
+          <div key={dateIndex}>
+            {dateIndex === 0 && <Hline></Hline>}
 
-          {/* Header Row */}
-          {!headerDisplayed && (
-            <Above>
-              <TimeA>날짜</TimeA>
-              <Same>시간</Same>
-              <Same>경기</Same>
-              <Same>구장</Same>
-            </Above>
-          )}
+            {/* Header Row */}
+            {!headerDisplayed && (
+              <Above>
+                <TimeA>날짜</TimeA>
+                <Same>시간</Same>
+                <Same>경기</Same>
+                <Same>구장</Same>
+              </Above>
+            )}
 
-          {/* Set the headerDisplayed flag to true after displaying the header */}
-          {!headerDisplayed && (headerDisplayed = true)}
+            {/* Set the headerDisplayed flag to true after displaying the header */}
+            {!headerDisplayed && (headerDisplayed = true)}
 
-          <Hline></Hline>
+            <Hline></Hline>
 
-          {/* Results for the current date */}
-          <StyledContainerbig key={dateIndex}>
-            <StyleDiv>
-              <p>{date}</p>
-            </StyleDiv>
-            <StyledContainer>
-              {resultsByDate[date].map((result: GameResult, resultIndex: number) => (
-                <div key={resultIndex}>
-                  <CellD>
-                    <Time>{result.time}</Time>
+            {/* Results for the current date */}
+            <StyledContainerbig key={dateIndex}>
+              <StyleDiv>
+                <p>{date}</p>
+              </StyleDiv>
+              <StyledContainer>
+                {resultsByDate[date].map((result: GameResult, resultIndex: number) => (
+                  <div key={resultIndex}>
+                    <CellD>
+                      <Time>{result.time}</Time>
                     <TeamandScore>
-                      <span style={{ color: result.score1 > result.score2 ? 'red' : 'black' }}>
+                      <span style={{ color: result.score1 > result.score2 ? 'red' : result.score1 < result.score2 ? 'blue' : 'black' }}>
                         {result.team1}
                       </span>
                       {` `}
-                      <span style={{ color: result.score1 > result.score2 ? 'red' : 'black' }}>
+                      <span style={{ color: result.score1 > result.score2 ? 'red' : result.score1 < result.score2 ? 'blue' : 'black' }}>
                         {result.score1}
                       </span>
                       {` vs `}
-                      <span style={{ color: result.score2 > result.score1 ? 'red' : 'black' }}>
+                      <span style={{ color: result.score2 > result.score1 ? 'red' : result.score2 < result.score1 ? 'blue' : 'black' }}>
                         {`${result.team2} ${result.score2}`}
                       </span>
                     </TeamandScore>
-                    <TeamandScore>{result.stadium}</TeamandScore>
-                  </CellD>
+                      <TeamandScore>{result.stadium}</TeamandScore>
+                    </CellD>
 
-                  {resultIndex !== resultsByDate[date].length - 1 && <HrB></HrB>}
-                  {/* 맨 마지막 아이템이 아닌 경우에만 초록색 선을 렌더링 */}
-                </div>
-              ))}
-            </StyledContainer>
-          </StyledContainerbig>
-        </div>
-      ))}
-    </div>
+                    {resultIndex !== resultsByDate[date].length - 1 && <HrB></HrB>}
+                    {/* 맨 마지막 아이템이 아닌 경우에만 초록색 선을 렌더링 */}
+                  </div>
+                ))}
+              </StyledContainer>
+            </StyledContainerbig>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
