@@ -56,7 +56,7 @@ export const PropsContainer = styled.div`
   display: flex;
 `;
 
-export const BtnContainer = styled.div`
+export const BtnNextContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: -50px;
