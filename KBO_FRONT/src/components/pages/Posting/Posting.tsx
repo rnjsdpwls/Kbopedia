@@ -6,7 +6,7 @@ import { StyledContent, StyledTable, PostBtnPosition, StyledPostBtn, Input, H1 }
 import { useNavigate } from 'react-router-dom';
 
 interface User {
-    username : string;
+    username: string;
 }
 
 interface Post {
@@ -28,9 +28,13 @@ interface NewPost {
 const BulletinBoard = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [newPost, setNewPost] = useState<NewPost>({
-        title: '', content: '', team: ''});
+        title: '', content: '', team: ''
+    });
     const [editPost, setEditPost] = useState<Post | null>(null);
     const [kakaoNickname, setKakaoNickname] = useState<string>('');
+
+    const TITLE_MAX_LENGTH = 20;
+    const CONTENT_MAX_LENGTH = 200;
 
     const navigate = useNavigate();
 
@@ -66,14 +70,29 @@ const BulletinBoard = () => {
 
 
     const handlePostSubmit = async () => {
+        const user_id = localStorage.getItem('user_id');
+        if (!newPost.title) {
+            alert('제목을 입력해주세요.');
+            return
+        }
+        if (!newPost.content) {
+            alert('내용을 입력해주세요.');
+            return
+        }
+        if (!newPost.team) {
+            alert('응원 구단을 선택해주세요.');
+            return
+        }
         try {
             const response = await axios.post<Post>('http://127.0.0.1:8000', {
                 ...newPost,
-                author: kakaoNickname
-                });
+                author: kakaoNickname,
+                user_id : user_id
+            });
             setPosts([...posts, response.data]);
             setNewPost({
-                title: '', content: '', team: ''});
+                title: '', content: '', team: ''
+            });
 
         } catch (error) {
             console.log(error);
@@ -81,6 +100,10 @@ const BulletinBoard = () => {
         navigate('/community');
 
     };
+
+    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setNewPost({ ...newPost, team: e.target.value })
+    }
 
 
     return (
@@ -101,15 +124,22 @@ const BulletinBoard = () => {
                             value={newPost.title}
                             onChange={handleInputChange}
                             placeholder='제목을 입력하세요.'
+                            maxLength={TITLE_MAX_LENGTH}
+
                         />
+                            {newPost.title.length >= TITLE_MAX_LENGTH && (
+                                <span style={{ color: 'red', fontSize:14 }}>제목은 최대 20자까지 입력 가능합니다.</span>
+                            )}
                         </td>
                     </tr>
                     <tr>
                         <td className='title'>글쓴이</td>
-                        <td className='nickname'>{kakaoNickname || '익명'}</td>
+                        <td className='nickname'>{kakaoNickname}</td>
                         <td className='title'>응원구단</td>
                         <td>
-                            <select style={{ width: 80, height: 30, textAlign: 'center' }}>
+                            <select style={{ width: 80, height: 30, textAlign: 'center' }}
+                                onChange={handleSelectChange}
+                                value={newPost.team}>
                                 <option>구단 선택</option>
                                 <option value={"LG"}>LG</option>
                                 <option value={"두산"}>두산</option>
@@ -133,7 +163,11 @@ const BulletinBoard = () => {
                                     value={newPost.content}
                                     onChange={handleInputChange}
                                     placeholder='내용을 입력하세요.'
+                                    maxLength={CONTENT_MAX_LENGTH}
                                 />
+                                <div style={{textAlign:'right'}}>
+                                    {`${newPost.content.length} / ${CONTENT_MAX_LENGTH}`}
+                                </div>
                             </StyledContent>
                         </td>
                     </tr>

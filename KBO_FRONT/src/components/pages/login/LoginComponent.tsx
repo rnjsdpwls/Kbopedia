@@ -17,14 +17,14 @@ function UserProfile() {
     // URL에서 카카오 닉네임을 추출
     const urlParams = new URLSearchParams(window.location.search);
     const kakaoNickname = urlParams.get('kakao_nickname');
-    const user_id = urlParams.get('user_id'); // 추가된 부분
+    const user_id = urlParams.get('user_id');
     const access_token = urlParams.get('access_token');
 
     // 로컬 스토리지에 카카오 닉네임을 저장
     if (kakaoNickname && access_token && user_id) {
       localStorage.setItem('kakao_nickname', kakaoNickname);
       localStorage.setItem('access_token', access_token);
-      localStorage.setItem('user_id', user_id); // 추가된 부분
+      localStorage.setItem('user_id', user_id);
 
       // Recoil 상태에도 반영
       setSession(prevState => ({
@@ -39,21 +39,6 @@ function UserProfile() {
         }
       }));
     }
-    
-
-    // 백엔드에서 추가 사용자 정보를 가져오기
-    // axios.get('http://127.0.0.1:8000/api/getUserInfo', { withCredentials: true })
-    //   .then(response => {
-    //     if (response.data && response.data.user_info) {
-    //       setSession({
-    //         isAuthenticated: true,
-    //         user: response.data.user_info,
-    //       });
-    //     }
-    //   })
-    //   .catch(error => {
-    //     console.error('사용자 정보를 가져오는데 실패했습니다', error);
-    //   });
   }, [setSession]);
 
   if (!session.isAuthenticated || !session.user) {
@@ -62,6 +47,7 @@ function UserProfile() {
 
   return (
     <div>
+      <Title>로그인 완료</Title>
       <LoginForm>
         <Loginbox>
           <Sign1>

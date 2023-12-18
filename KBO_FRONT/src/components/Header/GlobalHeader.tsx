@@ -14,10 +14,11 @@ const GlobalHeader = () => {
   const handleLogout = async () => {
     localStorage.removeItem('access_token');
     localStorage.removeItem('kakao_nickname');
+    localStorage.removeItem('user_id');
 
     // navigate 함수를 호출한 후 페이지를 새로고침합니다.
     await navigate('/');
-    window.location.reload();
+    window.location.href = 'http://127.0.0.1:8000/kakaoLogout';
   };
 
   return (
