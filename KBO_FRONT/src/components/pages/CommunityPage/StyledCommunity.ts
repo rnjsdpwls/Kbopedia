@@ -57,6 +57,7 @@ export const StyledPostBtn = styled.button`
     width:100px;
     height:50px;
     font-size:16px;
+    margin: 5px;
 `
 
 export const PostBtnPosition = styled.div`

@@ -20,9 +20,11 @@ interface DataItem {
   num: number;
   title: string;
   name: string;
-  created_at : string;
-  updated_at : string;
+  created_at: string;
+  updated_at: string;
   count: number;
+  author: string;
+  team: string;
 }
 
 export default function Community() {
@@ -31,19 +33,19 @@ export default function Community() {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<DataItem[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  
-  const increaseCount = async (postId:number):Promise<void> => {
+
+  const increaseCount = async (postId: number): Promise<void> => {
     try {
-      const response = await axios.get<DataItem>(`http://127.0.0.1:8000/api/posts/${postId}/increase_count/`);
+      const response = await axios.get<DataItem>(`http://127.0.0.1:8000/posts/${postId}/increase_count/`);
       // 증가된 count를 받아올 수 있습니다.
       console.log(`Count increased for post ${postId}: ${response.data.count}`);
 
-      setData((prevData)=>{
-        return prevData.map((item)=>{
-          if(item.id === postId) {
+      setData((prevData) => {
+        return prevData.map((item) => {
+          if (item.id === postId) {
             return {
-              ... item,
-              count : response.data.count,
+              ...item,
+              count: response.data.count,
             };
           }
           return item;
@@ -57,7 +59,7 @@ export default function Community() {
 
   useEffect(() => {
     // 데이터를 불러오는 부분
-    axios.get('http://127.0.0.1:8000/api/')
+    axios.get('http://127.0.0.1:8000')
       .then((response) => {
         setData(response.data);
         setLoading(false); // 데이터 로딩이 완료되면 로딩 상태를 false로 변경
@@ -77,9 +79,9 @@ export default function Community() {
     const options = { year: 'numeric', month: 'long', day: 'numeric' } as any;
 
     return new Date(dateString).toLocaleDateString('ko-KR', options);
-};
+  };
 
-// 예시로 increaseCount 함수 호출
+  // 예시로 increaseCount 함수 호출
 
 
 
@@ -87,7 +89,7 @@ export default function Community() {
   return (
     <div>
       <Container>
-      <ImagePosition>
+        <ImagePosition>
           <Link to="/Heroes">
             <StyeldImages src={Heroes} alt='키움로고'></StyeldImages>
           </Link>
@@ -134,15 +136,19 @@ export default function Community() {
                 <td colSpan={header.length}>로딩 중...</td>
               </tr>
             ) : (
-              paginatedData.map((item, index) => (
-                <tr key={index}>
-                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.id}</Link></td>
-                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.title}</Link></td>
-                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.name}</Link></td>
-                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{formatDate(item.created_at)}</Link></td>
-                  <td><Link to={`/content/${item.id}`} onClick={()=>increaseCount(item.id)}>{item.count}</Link></td>
-                </tr>
-              ))
+              paginatedData.map((item, index) => {
+                const reverseIndex = data.length - ( currentPage - 1) * ITEMS_PER_PAGE - index;
+                return (
+                  <tr key={index}>
+                    <td><Link to={`/content/${item.id}`} onClick={() => increaseCount(item.id)}>{reverseIndex}</Link></td>
+                    <td><Link to={`/content/${item.id}`} onClick={() => increaseCount(item.id)}>[{item.team}]{item.title}</Link></td>
+                    <td><Link to={`/content/${item.id}`} onClick={() => increaseCount(item.id)}> {item.author}</Link></td>
+                    <td><Link to={`/content/${item.id}`} onClick={() => increaseCount(item.id)}>{formatDate(item.created_at)}</Link></td>
+                    <td><Link to={`/content/${item.id}`} onClick={() => increaseCount(item.id)}>{item.count}</Link></td>
+                  </tr>
+                )
+              }
+              )
             )}
           </tbody>
         </StyledTable>
@@ -150,7 +156,7 @@ export default function Community() {
         <div>
           {/* Display page numbers */}
           {Array.from({ length: totalPages }).map((_, index) => (
-            <Pagebutton 
+            <Pagebutton
               key={index}
               onClick={() => setCurrentPage(index + 1)}
               style={{ fontWeight: currentPage === index + 1 ? 'bold' : 'normal' }}
