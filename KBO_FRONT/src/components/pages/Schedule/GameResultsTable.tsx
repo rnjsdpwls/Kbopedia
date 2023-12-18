@@ -14,25 +14,28 @@ interface GameResult {
 }
 
 function GameResultsTable() {
-  const gameResults = gameResultsData.gameResults;
-
-  // Group game results by date
-  const resultsByDate: { [date: string]: GameResult[] } = {};
-
-  gameResults.forEach((result) => {
-    if (!resultsByDate[result.date]) {
-      resultsByDate[result.date] = [];
-    }
-    resultsByDate[result.date].push(result);
-  });
-
-  // Initialize a flag to track whether the header has been displayed
-  let headerDisplayed = false;
+    const gameResults = gameResultsData.gameResults;
+  
+    // Group game results by date
+    const resultsByDate: { [date: string]: GameResult[] } = {};
+  
+    gameResults.forEach((result) => {
+      if (!resultsByDate[result.date]) {
+        resultsByDate[result.date] = [];
+      }
+      resultsByDate[result.date].push(result);
+    });
+  
+    // Initialize a flag to track whether the header has been displayed
+    let headerDisplayed = false;
 
   return (
     <>
       <GlobalStyles />
       <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '80px', marginBottom: '90px'}}>
+        {/* Title */}
+        <h1 style={{ textAlign: 'left', fontSize: '70px', marginBottom: '95px',  color: '#75B46F' }}>경기일정/결과</h1>
+
         {Object.keys(resultsByDate).map((date, dateIndex) => (
           <div key={dateIndex}>
             {dateIndex === 0 && <Hline></Hline>}
@@ -62,19 +65,22 @@ function GameResultsTable() {
                   <div key={resultIndex}>
                     <CellD>
                       <Time>{result.time}</Time>
-                    <TeamandScore>
-                      <span style={{ color: result.score1 > result.score2 ? 'red' : result.score1 < result.score2 ? 'blue' : 'black' }}>
-                        {result.team1}
-                      </span>
-                      {` `}
-                      <span style={{ color: result.score1 > result.score2 ? 'red' : result.score1 < result.score2 ? 'blue' : 'black' }}>
-                        {result.score1}
-                      </span>
-                      {` vs `}
-                      <span style={{ color: result.score2 > result.score1 ? 'red' : result.score2 < result.score1 ? 'blue' : 'black' }}>
-                        {`${result.team2} ${result.score2}`}
-                      </span>
-                    </TeamandScore>
+                      <TeamandScore>
+                        <span style={{ color: 'black' }}>
+                          {result.team1}
+                        </span>
+                        {` `}
+                        <span style={{ color: result.score1 > result.score2 ? 'red' : result.score1 < result.score2 ? 'blue' : 'black' }}>
+                          {result.score1}
+                        </span>
+                        {` vs `}
+                        <span style={{ color: result.score2 > result.score1 ? 'red' : result.score2 < result.score1 ? 'blue' : 'black' }}>
+                          {`${result.score2} `}
+                        </span>
+                        <span style={{ color: 'black' }}>
+                          {result.team2}
+                        </span>
+                      </TeamandScore>
                       <TeamandScore>{result.stadium}</TeamandScore>
                     </CellD>
 
@@ -92,3 +98,4 @@ function GameResultsTable() {
 }
 
 export default GameResultsTable;
+
