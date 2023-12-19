@@ -37,23 +37,24 @@ color: #000000;
 `;
 
 
-export const QuizOption = styled.div`
-  font-size: 38px;
+export const QuizOption = styled.div<{ fontSize: number }>`
+  font-size: ${(props) => props.fontSize}px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top :10px;
+  margin-top: 10px;
   background: #D9D9D9;
   color: #000000;
   position: relative;
   top: -40%;
-  left:-50%;
+  left: -50%;
   width: 425px;
   height: 68px;
   border-radius: 20px;
+  padding: 10px;
+  
 `;
-
 
 
 export const QuizAnswer = styled.div`
