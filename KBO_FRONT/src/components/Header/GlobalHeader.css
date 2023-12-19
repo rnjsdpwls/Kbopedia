@@ -6,6 +6,9 @@
   align-items: center;
   padding: 10px;
   z-index: 1;
+  background-color: #fefffd;
+  border-bottom: 1px solid #EBEBEB;
+  opacity: 80%;
 }
 
 .btnLogin {

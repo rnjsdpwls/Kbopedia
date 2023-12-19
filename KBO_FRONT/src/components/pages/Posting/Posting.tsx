@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRecoilValue } from 'recoil';
-import { sessionState } from '../login/SessionState'; // 경로는 실제 구조에 맞게 조정하세요
 import { StyledContent, StyledTable, PostBtnPosition, StyledPostBtn, Input, H1 } from './StyledPosting';
 import { useNavigate } from 'react-router-dom';
 

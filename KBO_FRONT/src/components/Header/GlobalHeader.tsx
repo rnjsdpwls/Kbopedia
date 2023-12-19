@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import './GlobalHeader.css';
@@ -6,6 +6,7 @@ import './GlobalHeader.css';
 const GlobalHeader = () => {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('code') !== null;
+  const [kakaoNickname, setKakaoNickname] = useState<string>('');
 
   const handleLogout = async () => {
     localStorage.removeItem('code');
@@ -16,6 +17,13 @@ const GlobalHeader = () => {
     await navigate('/');
     window.location.href = 'http://127.0.0.1:8000/kakaoLogout';
   };
+
+  useEffect(() => {
+    const storedNickname = localStorage.getItem('kakao_nickname');
+    if (storedNickname) {
+        setKakaoNickname(storedNickname);
+    }
+}, []);
 
   return (
     <>
@@ -28,7 +36,11 @@ const GlobalHeader = () => {
         <span className='BtnContainer'>
           {
             isLoggedIn
-              ? <button className='btnLogin' onClick={handleLogout}>Logout</button>
+              ? <div>
+                <p>{kakaoNickname} 님
+                <button className='btnLogin' onClick={handleLogout}>Logout</button>
+                </p>
+              </div>
               : <Link to="/Login"><button className='btnLogin'>Login</button></Link>
           }
         </span>
