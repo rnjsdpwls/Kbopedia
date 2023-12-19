@@ -25,28 +25,28 @@ function App() {
   return (
     <RecoilRoot>
 
-    <div className="App">
-      <GlobalHeader />
-      <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/Community" element={<Community />}></Route>
-        <Route path="/Content/:id" element={<Content />}></Route>
-        <Route path="/Login" element={<Login />}></Route>
-        <Route path="/LoginComponent" element={<UserProfile />}></Route>
-        <Route path="/Quiz" element={<Quiz />}></Route>
-        <Route path="/QuizList" element={<QuizList />}></Route>
-        <Route path="/quiz/basic" element={<QuizPage level="quizbasic" />} />
-        <Route path="/quiz/deep" element={ <QuizPage level="quizdeep" />} />
-        <Route path="/Posting" element={isLoggedIn ? <Posting /> : <Navigate to= "/Login" />}></Route>
-        <Route path="/MainInfo" element={<MainInfo />}></Route>
-        <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
-        <Route path="/TeamItems/:id" element={<TeamItems />} />
-        <Route path="/TeamItems/:id/cheers" element={<CheerPage />} />
-        <Route path="/Dict" element={<Dict />}></Route>
-        <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
-        <Route path="/GameResultsTable" element={<GameResultsTable />} />
-      </Routes>
-    </div >
+      <div className="App">
+        <GlobalHeader />
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/Community" element={<Community />}></Route>
+          <Route path="/Content/:id" element={<Content />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/LoginComponent" element={<UserProfile />}></Route>
+          <Route path="/Quiz" element={<Quiz />}></Route>
+          <Route path="/QuizList" element={<QuizList />}></Route>
+          <Route path="/quiz/basic" element={<QuizPage level="quizbasic" />} />
+          <Route path="/quiz/deep" element={<QuizPage level="quizdeep" />} />
+          <Route path="/Posting" element={isLoggedIn ? <Posting /> : <Navigate to="/Login" />}></Route>
+          <Route path="/MainInfo" element={<MainInfo />}></Route>
+          <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
+          <Route path="/TeamItems/:id" element={<TeamItems />} />
+          <Route path="/TeamItems/:id/cheers" element={<CheerPage />} />
+          <Route path="/Dict" element={<Dict />}></Route>
+          <Route path="/GlobalFooter" element={<GlobalFooter />}></Route>
+          <Route path="/GameResultsTable" element={<GameResultsTable />} />
+        </Routes>
+      </div >
     </RecoilRoot>
   );
 }
