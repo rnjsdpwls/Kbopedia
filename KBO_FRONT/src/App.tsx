@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import {RecoilRoot} from 'recoil'
 import GlobalHeader from './components/Header/GlobalHeader';
 import GlobalFooter from "./components/Footer/GlobalFooter";
 import Community from "./components/pages/CommunityPage/Community";
@@ -15,11 +16,10 @@ import MainInfo from "./components/pages/MainPage/components/MainInfo";
 import Content from "./components/pages/CommunityPage/Content";
 import GameResultsTable from './components/pages/Schedule/GameResultsTable';
 import CheerPage from "./components/pages/TeamInfoPage/CheerPage/CheerPage";
-import { RecoilRoot } from "recoil";
 import UserProfile from "./components/pages/login/LoginComponent";
 
 function App() {
-  const isLoggedIn = localStorage.getItem('access_token') !== null;
+  const isLoggedIn = localStorage.getItem('code') !== null;
 
   return (
     <RecoilRoot>

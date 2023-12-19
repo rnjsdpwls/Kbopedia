@@ -92,3 +92,7 @@ export const StyledPosts = styled.div`
     border: 1px solid #E4E4E4;
 
 `
+
+export const StyledComment = styled.div`
+
+`

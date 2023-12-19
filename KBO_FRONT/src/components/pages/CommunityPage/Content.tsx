@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   PostBtnPosition,
+  StyledComment,
   StyledPostBtn,
   StyledPosts,
   StyledTitle,
@@ -15,8 +16,16 @@ interface DataItem {
   team: string;
   user_id: string;
 }
+interface Comment {
+  id: number;
+  post: number;
+  content: string;
+  created_at: string;
+}
 
 export default function Content() {
+  const [comment, setComment] = useState<string>(''); // 댓글 입력 상태 관리
+  const [comments, setComments] = useState<Comment[]>([]); // 댓글 목록 상태 관리
   const [kakaoNickname, setKakaoNickname] = useState<string>('');
   const [currentUser, setCurrentUser] = useState<string>('');
   const { id } = useParams<{ id: string }>();
@@ -30,14 +39,14 @@ export default function Content() {
     user_id: "",
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  // const storedNickname = localStorage.getItem('kakao_nickname');
-  // if (storedNickname) {
-  //   setKakaoNickname(storedNickname);
-  // }
+  
+  const TITLE_MAX_LENGTH = 20;
+  const CONTENT_MAX_LENGTH = 200;
 
   useEffect(() => {
     fetchData();
   }, [id]);
+
 
   const fetchData = () => {
     setLoading(true);
@@ -63,15 +72,18 @@ export default function Content() {
   };
 
   const handleDelete = () => {
-    axios
-      .delete(`http://127.0.0.1:8000/${id}`)
-      .then(() => {
-        console.log("삭제 성공");
-        navigate("/community");
-      })
-      .catch((error) => {
-        console.error("삭제 중 오류 발생: " + error);
-      });
+    const isConfirmed = window.confirm('정말 게시글을 삭제하시겠습니까?');
+    if (isConfirmed) {
+      axios
+        .delete(`http://127.0.0.1:8000/${id}`)
+        .then(() => {
+          console.log("삭제 성공");
+          navigate("/community");
+        })
+        .catch((error) => {
+          console.error("삭제 중 오류 발생: " + error);
+        });
+    }
   };
 
   const handleEdit = () => {
@@ -91,17 +103,20 @@ export default function Content() {
       alert('응원 구단을 선택해주세요.');
       return
     }
-    axios
-      .put(`http://127.0.0.1:8000/${id}`, editableData)
-      .then(() => {
-        console.log("수정 성공");
-        fetchData(); // 수정 후 데이터 다시 불러오기
-        setIsEditing(false); // 수정 완료 후 편집 모드 해제
-        navigate("/community");
-      })
-      .catch((error) => {
-        console.error("수정 중 오류 발생" + error);
-      });
+    const isConfirmed = window.confirm('정말 이 게시글을 수정하시겠습니까?');
+    if (isConfirmed) {
+      axios
+        .put(`http://127.0.0.1:8000/${id}`, editableData)
+        .then(() => {
+          console.log("수정 성공");
+          fetchData(); // 수정 후 데이터 다시 불러오기
+          setIsEditing(false); // 수정 완료 후 편집 모드 해제
+          navigate("/community");
+        })
+        .catch((error) => {
+          console.error("수정 중 오류 발생" + error);
+        });
+    }
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,7 +157,11 @@ export default function Content() {
                       value={editableData.title}
                       onChange={handleTitleChange}
                       placeholder='제목을 입력하세요.'
+                      maxLength={TITLE_MAX_LENGTH}
                     />
+                      {editableData.title.length >= TITLE_MAX_LENGTH && (
+                        <span style={{ color: 'red', fontSize: 14 }}>제목은 최대 20자까지 입력 가능합니다.</span>
+                      )}
                     </td>
                   </tr>
                   <tr>
@@ -174,7 +193,11 @@ export default function Content() {
                           value={editableData.content}
                           onChange={handleContentChange}
                           placeholder='내용을 입력하세요.'
+                          maxLength={CONTENT_MAX_LENGTH}
                         />
+                        <div style={{ textAlign: 'right' }}>
+                          {`${editableData.content.length} / ${CONTENT_MAX_LENGTH}`}
+                        </div>
                       </StyledContent>
                     </td>
                   </tr>

@@ -18,12 +18,12 @@ function UserProfile() {
     const urlParams = new URLSearchParams(window.location.search);
     const kakaoNickname = urlParams.get('kakao_nickname');
     const user_id = urlParams.get('user_id');
-    const access_token = urlParams.get('access_token');
+    const code = urlParams.get('code');
 
     // 로컬 스토리지에 카카오 닉네임을 저장
-    if (kakaoNickname && access_token && user_id) {
+    if (kakaoNickname && code && user_id) {
       localStorage.setItem('kakao_nickname', kakaoNickname);
-      localStorage.setItem('access_token', access_token);
+      localStorage.setItem('code', code);
       localStorage.setItem('user_id', user_id);
 
       // Recoil 상태에도 반영

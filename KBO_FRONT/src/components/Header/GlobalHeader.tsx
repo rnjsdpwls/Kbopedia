@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
 import logo from '../../images/logo.png';
 import './GlobalHeader.css';
-import { sessionState } from '../pages/login/SessionState';
-import axios from 'axios';
 
 const GlobalHeader = () => {
-  const session = useRecoilValue(sessionState);
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem('access_token') !== null;
+  const isLoggedIn = localStorage.getItem('code') !== null;
 
   const handleLogout = async () => {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem('code');
     localStorage.removeItem('kakao_nickname');
     localStorage.removeItem('user_id');
 

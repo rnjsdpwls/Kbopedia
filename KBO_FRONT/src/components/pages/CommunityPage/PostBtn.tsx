@@ -8,7 +8,7 @@ interface Ipost {
 
 const PostBtn : React.FC<Ipost> = ({ label }) => {
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem('access_token') !== null;
+  const isLoggedIn = localStorage.getItem('code') !== null;
 
   const handleButtonClick = () => {
     if (isLoggedIn) {
