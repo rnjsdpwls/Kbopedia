@@ -6,7 +6,6 @@ import Login from "./components/pages/login/Login";
 import Quiz from "./components/pages/Quiz/Quiz";
 import QuizList from "./components/pages/Quiz/QuizList";
 import QuizPage from "./components/pages/Quiz/QuizPage";
-
 import Posting from "./components/pages/Posting/Posting";
 import MainPage from './components/pages/MainPage/MainPage';
 import TeamInfo from "./components/pages/TeamInfoPage/TeamInfo";
@@ -34,6 +33,7 @@ function App() {
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/LoginComponent" element={<UserProfile />}></Route>
           <Route path="/Quiz" element={<Quiz />}></Route>
+          <Route path="/Quiz/:id" element={<Quiz/>} />
           <Route path="/QuizList" element={<QuizList />}></Route>
           <Route path="/quiz/basic" element={<QuizPage level="quizbasic" />} />
           <Route path="/quiz/deep" element={<QuizPage level="quizdeep" />} />

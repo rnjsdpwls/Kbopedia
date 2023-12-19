@@ -25,7 +25,7 @@ const findQuizById = (id: number) => {
 export default function Quiz() {
   const { id } = useParams<QuizParams>();
   const quizId = id ? parseInt(id, 10) : undefined;
-
+  const [completedQuizzes, setCompletedQuizzes] = useState<number[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
 
@@ -35,12 +35,30 @@ export default function Quiz() {
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
   };
-
-  const handleConfirm = () => {
-    setSelectedAnswer(null);
-    navigate(-1);
+  
+  const markQuizAsCompleted = (quizId: number) => {
+    const completedQuizzes = JSON.parse(localStorage.getItem('completedQuizzes') || '[]');
+  
+    if (!completedQuizzes.includes(quizId)) {
+      completedQuizzes.push(quizId);
+      localStorage.setItem('completedQuizzes', JSON.stringify(completedQuizzes));
+      setCompletedQuizzes(completedQuizzes); // 상태 업데이트
+    }
   };
-
+  const handleConfirm = () => {
+    if (quiz && selectedAnswer) {
+      // 정답을 맞춘 경우
+      if (selectedAnswer === quiz.correctAnswer) {
+        console.log('정답을 맞췄습니다.');
+        markQuizAsCompleted(quiz.id);
+        navigate(-1);
+      } else {
+        // 정답을 틀린 경우
+        console.log('틀렸습니다.');
+      }
+      setSelectedAnswer(null);
+    }
+  };
   
   return (
     <Container>

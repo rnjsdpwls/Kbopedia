@@ -41,9 +41,5 @@ export default function QuizList() {
       </QuizContainer>
     </div>
   );
-<<<<<<< HEAD
-}
-=======
-}
 
->>>>>>> ea99a190aa976977ad8478a0f4274df7b5596607
+};
