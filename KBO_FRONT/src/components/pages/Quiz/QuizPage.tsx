@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { QuizContainer, QuizMainTitle, QuizLevelContainer, QuizLevelBut, Intro } from './StyleQuizList';
+import { QuizContainer, QuizMainTitle, QuizLevelContainer, QuizLevelBut, Intro,Exp} from './StyleQuizList';
 import QuizDummy from '../../../db/quizData.json';
 import { Link } from 'react-router-dom';
 
@@ -39,6 +39,9 @@ export default function QuizPage() {
             <QuizLevelBut onClick={() => handleLevelChange('quizdeep')}>Level 999</QuizLevelBut>
           </Link>
         </QuizLevelContainer>
+
+        <Exp>본 퀴즈는 Kbopedia 홈페이지에서 제공되는 야구 용어들을 기반하여 제작되었습니다.</Exp>
+
 
       </QuizContainer>
     </div>
