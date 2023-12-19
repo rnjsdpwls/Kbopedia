@@ -51,7 +51,7 @@ const DictMenu = () => {
         </h3>
         <ul>
           <DropdownItem text={'KBO 리그 기초 정보'} />
-          <Link to="/Quiz"> <DropdownItem text={'야구 퀴즈'} /></Link>
+          <Link to="/QuizList"> <DropdownItem text={'야구 퀴즈'} /></Link>
         </ul>
       </div>
       <div className="dict-menu-trigger" >
