@@ -3,13 +3,16 @@ import styled from "styled-components";
 export const QuizContainer = styled.div`
   text-align: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  margin-top:200px;
 `;
 
+export const QuizListContainer = styled.div`
+justify-content: center;
+align-items: center;
+position: absolute;
+top: 10%;
+left: 35%;
+`;
 
 export const QuizMainTitle = styled.div`
   display: flex;
@@ -53,19 +56,22 @@ export const QuizLeveltitle = styled.div`
   height: 100px;
   font-size: 60px;
   color: #61a063;
-  padding: 4px;
+  margin-left: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+
 `;
 
 
 export const QuizTitle = styled.div`
   display: flex;
-  textAlign: 'left' 
-  justify-content: center;
-  margin: 30px 10px  10px;
+  textAlign: left; 
+  justify-content: left;
+  width: 550px;
+  padding: 10px;
   font-size: 18px;
+  border-bottom: 2px solid black;
   
 `;
 

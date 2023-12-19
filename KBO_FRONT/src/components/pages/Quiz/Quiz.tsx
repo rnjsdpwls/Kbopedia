@@ -41,6 +41,7 @@ export default function Quiz() {
     navigate(-1);
   };
 
+  
   return (
     <Container>
       <QuizTitle>Quiz</QuizTitle>
