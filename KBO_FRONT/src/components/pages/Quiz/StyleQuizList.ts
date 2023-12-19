@@ -6,7 +6,7 @@ import styled from "styled-components";
 export const QuizContainer = styled.div`
   text-align: center;
   justify-content: center;
-  margin-top:150px;
+  margin-top:120px;
 `;
 
 
@@ -45,6 +45,13 @@ export const QuizLevelBut = styled.button`
   
 `;
 
+export const Exp = styled.p`
+   display: flex;
+  justify-content: center;
+  margin-top:50px;
+  font-size: 15px;
+  color: gray;
+`
 
 
 //QuizList_Style
