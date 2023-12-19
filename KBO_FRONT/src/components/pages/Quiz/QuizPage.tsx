@@ -1,14 +1,11 @@
-import React from "react";
-import { useParams } from 'react-router-dom';
-import { QuizContainer, QuizTitle } from './StyleQuizList';
+import { QuizListContainer, QuizTitle, QuizLeveltitle } from './StyleQuizList';
 import QuizDummy from '../../../db/quizData.json';
 import { Link } from 'react-router-dom';
-
 
 type QuizData = {
   id: number;
   question: string;
-  option: string[];
+  options: string[];
   correctAnswer: string;
 };
 
@@ -16,20 +13,21 @@ type QuizPageProps = {
   level: 'quizbasic' | 'quizdeep';
 };
 
-const QuizPage: React.FC<QuizPageProps> = ({ level }) => {
+export default function QuizPage({ level }: QuizPageProps) {
   const quizzes = QuizDummy[level];
+  const levelText = level === 'quizbasic' ? 'Level 1' : 'Level 999';
 
   return (
-    <QuizContainer>
+    <QuizListContainer>
+      <QuizLeveltitle style={{ fontSize: '40px' }}>{levelText} 문제 </QuizLeveltitle>
       {quizzes.map((quiz: QuizData) => (
-        <div key={quiz.id}>
-            <Link to="/Quiz">
-          <QuizTitle>{quiz.question}</QuizTitle>
+        <div key={quiz.id} >
+          <Link to={`/Quiz/${quiz.id}`}>
+            <QuizTitle>{quiz.question}</QuizTitle>
           </Link>
+          
         </div>
       ))}
-    </QuizContainer>
+    </QuizListContainer>
   );
 };
-
-export default QuizPage;
