@@ -29,9 +29,11 @@ export default function QuizPage() {
         <Intro>퀴즈의 난이도를 선택해 주세요</Intro>
 
         <QuizLevelContainer>
+          
           <Link to="/quiz/basic">
             <QuizLevelBut onClick={() => handleLevelChange('quizbasic')}>Level 1</QuizLevelBut>
           </Link>
+           
            
           <Link to="/quiz/deep">
             <QuizLevelBut onClick={() => handleLevelChange('quizdeep')}>Level 999</QuizLevelBut>
