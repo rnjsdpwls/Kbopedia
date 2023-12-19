@@ -1,18 +1,14 @@
 import styled from "styled-components";
 
+
+
+//QuizPage_Style
 export const QuizContainer = styled.div`
   text-align: center;
   justify-content: center;
   margin-top:150px;
 `;
 
-export const QuizListContainer = styled.div`
-justify-content: center;
-align-items: center;
-position: absolute;
-top: 10%;
-left: 35%;
-`;
 
 export const QuizMainTitle = styled.div`
   display: flex;
@@ -50,6 +46,16 @@ export const QuizLevelBut = styled.button`
 `;
 
 
+
+//QuizList_Style
+export const QuizListContainer = styled.div`
+justify-content: center;
+align-items: center;
+position: absolute;
+top: 10%;
+left: 35%;
+`;
+
 export const QuizLeveltitle = styled.div`
   
   border-radius: 10px;
@@ -58,7 +64,7 @@ export const QuizLeveltitle = styled.div`
   font-size: 60px;
   font-weight: 600;
   color: #61a063;
-  margin-top: -20px;
+  margin-top: 30px;
   margin-left: 50px;
   display: flex;
   align-items: center;
@@ -66,6 +72,18 @@ export const QuizLeveltitle = styled.div`
 
 `;
 
+export const QuizLevel = styled.button`
+  float: right;
+  position: relative;
+  top: -30px;
+  left: 100px;
+  width: 120px;
+  height: 60px;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #c6dfc4;
+`;
 
 export const QuizTitle = styled.div`
   display: flex;
@@ -78,6 +96,10 @@ export const QuizTitle = styled.div`
   
 `;
 
+export const QuizCompleted = styled.p`
+margin-left: 20px;
+color: #A64D4D;
+`
 
 export const QuizLevelContainer = styled.div`
   display: flex;
