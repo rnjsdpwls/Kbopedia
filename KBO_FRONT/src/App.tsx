@@ -34,9 +34,9 @@ function App() {
           <Route path="/LoginComponent" element={<UserProfile />}></Route>
           <Route path="/Quiz" element={<Quiz />}></Route>
           <Route path="/Quiz/:id" element={<Quiz/>} />
-          <Route path="/QuizList" element={<QuizList />}></Route>
-          <Route path="/quiz/basic" element={<QuizPage level="quizbasic" />} />
-          <Route path="/quiz/deep" element={<QuizPage level="quizdeep" />} />
+          <Route path="/QuizPage" element={<QuizPage />}></Route>
+          <Route path="/quiz/basic" element={<QuizList level="quizbasic" />} />
+          <Route path="/quiz/deep" element={<QuizList level="quizdeep" />} />
           <Route path="/Posting" element={isLoggedIn ? <Posting /> : <Navigate to="/Login" />}></Route>
           <Route path="/MainInfo" element={<MainInfo />}></Route>
           <Route path="/TeamInfo" element={<TeamInfo newId={1} />} />
