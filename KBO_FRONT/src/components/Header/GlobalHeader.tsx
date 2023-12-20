@@ -28,11 +28,9 @@ const GlobalHeader = () => {
   return (
     <>
       <div className='headContainer'>
-        <Link to="/">
           <span className='logo'>
-            <img src={logo} alt='logo' style={{ height: '55px' }} />
+            <img src={logo} alt='logo' style={{ height: '55px' }} onClick={()=>window.location.href='http://localhost:3000'}/>
           </span>
-        </Link>
         <span className='BtnContainer'>
           {
             isLoggedIn

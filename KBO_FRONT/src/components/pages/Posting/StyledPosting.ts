@@ -61,7 +61,6 @@ export const StyledContent = styled.div`
         
             justify-content: space-between;
             border: 1px solid #E4E4E4;
-            font-family: 'KBO-Dia-Gothic_medium';
             background-color: transparent;
             resize: none;
             &::placeholder{

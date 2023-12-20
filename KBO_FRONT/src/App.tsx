@@ -18,6 +18,7 @@ import GameResultsTable from './components/pages/Schedule/GameResultsTable';
 import CheerPage from "./components/pages/TeamInfoPage/CheerPage/CheerPage";
 import UserProfile from "./components/pages/login/LoginComponent";
 
+
 function App() {
   const isLoggedIn = localStorage.getItem('code') !== null;
 
