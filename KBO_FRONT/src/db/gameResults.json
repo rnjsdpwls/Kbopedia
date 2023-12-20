@@ -1,0 +1,164 @@
+{
+    "gameResults": [
+          {
+            "date": "10월1일",
+            "time": "14:00",
+            "team1": "LG",
+            "team2": "두산",
+            "score1": 7,
+            "score2": 3,
+            "stadium": "잠실"
+          },
+
+          {
+            "date": "10월1일",
+            "time": "15:00",
+            "team1": "SKT",
+            "team2": "SSG",
+            "score1": 10,
+            "score2": 3,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월1일",
+            "time": "13:00",
+            "team1": "SKT",
+            "team2": "SSG",
+            "score1": 10,
+            "score2": 3,
+            "stadium": "문학"
+          },
+
+
+          
+          {
+            "date": "10월2일",
+            "time": "15:00",
+            "team1": "LG",
+            "team2": "두산",
+            "score1": 3,
+            "score2": 3,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월2일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월3일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월3일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월4일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월5일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          },
+         
+          {
+            "date": "10월4일",
+            "time": "14:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월5일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "잠실"
+          },
+
+          {
+            "date": "10월4일",
+            "time": "18:00",
+            "team1": "삼성",
+            "team2": "한화",
+            "score1": 1,
+            "score2": 2,
+            "stadium": "문학"
+          },
+
+          {
+            "date": "10월5일",
+            "time": "17:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 1,
+            "score2": 2,
+            "stadium": "잠실"
+          },
+          
+          {
+            "date": "10월5일",
+            "time": "13:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 8,
+            "score2": 2,
+            "stadium": "잠실"
+          },
+          {
+            "date": "10월3일",
+            "time": "12:00",
+            "team1": "KIA",
+            "team2": "한화",
+            "score1": 9,
+            "score2": 2,
+            "stadium": "문학"
+          }
+
+
+      
+
+
+
+
+        
+
+        ]
+      }
+    

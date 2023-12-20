@@ -1,82 +1,99 @@
 import React from 'react';
+import gameResultsData from '../../../db/gameResults.json';
+import { TimeA, Same, Time, Above, TeamandScore, CellD, Hline, HrB, StyledContainer, StyleDiv, StyledContainerbig } from './GameResultsTableA';
 
+interface GameResult {
+  date: string;
+  time: string;
+  team1: string;
+  team2: string;
+  score1: number;
+  score2: number;
+  stadium: string;
+}
 
 function GameResultsTable() {
+    const gameResults = gameResultsData.gameResults;
+  
+    // Group game results by date
+    const resultsByDate: { [date: string]: GameResult[] } = {};
+  
+    gameResults.forEach((result) => {
+      if (!resultsByDate[result.date]) {
+        resultsByDate[result.date] = [];
+      }
+      resultsByDate[result.date].push(result);
+    });
+  
+    // Initialize a flag to track whether the header has been displayed
+    let headerDisplayed = false;
+
   return (
-
-
-
-<div className="centered" style={{ position: 'relative', top: '60px', margin: '0 auto', width: '1300px', marginTop: '200px' }}>
-    <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
-    
-    <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginRight: "-3px" }}>
-      <p style={{ textAlign: 'center', margin: '30px 25px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>날짜</p>
-      <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>시간</p>
-      <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>경기</p>
-      <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1 }}>구장</p>
-    </div>
-    
-    <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
-    
-    <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row' }}>
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p>10.01(일)</p>
-      </div>
+    <>
       
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}> 
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>14:00</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>LG 7 vs 4 두산</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>잠실</p>
-      </div>
-        
-          <hr style={{ width: '1000px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
-        
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>14:00</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>KIA 4 vs 6 SSG</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>문학</p>
-        </div>
-    </div> 
- </div> 
-    
-         <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
-        
-       
-         <div style={{ margin: '0 auto', display: 'flex', flexDirection: 'row', marginLeft: '-235px' }}>
-      <div style={{ flex: 1, display: 'flex', alignItems:'center',  justifyContent: 'center' }}>
-        <p> 10.02(월)</p>
-      </div>
-      
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginLeft: "-230px"}}> 
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>14:00</p>
-          <p style={{ textAlign: 'center', margin: '30px',lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>LG 7 vs 4 두산</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>잠실</p>
-      </div>
-        
-         
-        
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginLeft: "-230px"}}>
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>14:00</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>KIA 4 vs 6 SSG</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>문학</p>
-        </div>
+      <div className="centered" style={{ position: 'relative', top: '0px', margin: '0 auto', width: '1300px', marginTop: '80px', marginBottom: '90px'}}>
+        {/* Title */}
+        <h1 style={{ textAlign: 'left', fontSize: '70px', marginBottom: '95px',  color: '#75B46F' }}>경기일정/결과</h1>
 
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginLeft: "-230px"}}>
-          <p style={{ textAlign: 'center', margin: '30px 50px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>14:00</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>LG 4 vs 6 NC</p>
-          <p style={{ textAlign: 'center', margin: '30px', lineHeight: '2px', verticalAlign: 'middle', flex: 1}}>문학</p>
-        </div>
+        {Object.keys(resultsByDate).map((date, dateIndex) => (
+          <div key={dateIndex}>
+            {dateIndex === 0 && <Hline></Hline>}
 
-    </div> 
-  </div>
+            {/* Header Row */}
+            {!headerDisplayed && (
+              <Above>
+                <TimeA>날짜</TimeA>
+                <Same>시간</Same>
+                <Same>경기</Same>
+                <Same>구장</Same>
+              </Above>
+            )}
 
-  <hr style={{ width: '1300px', height: '2px', border: '0', backgroundColor: 'green' }} /> {/* 초록색 */}
-</div>    
+            {/* Set the headerDisplayed flag to true after displaying the header */}
+            {!headerDisplayed && (headerDisplayed = true)}
+
+            <Hline></Hline>
+
+            {/* Results for the current date */}
+            <StyledContainerbig key={dateIndex}>
+              <StyleDiv>
+                <p>{date}</p>
+              </StyleDiv>
+              <StyledContainer>
+                {resultsByDate[date].map((result: GameResult, resultIndex: number) => (
+                  <div key={resultIndex}>
+                    <CellD>
+                      <Time>{result.time}</Time>
+                      <TeamandScore>
+                        <span style={{ color: 'black' }}>
+                          {result.team1}
+                        </span>
+                        {` `}
+                        <span style={{ color: result.score1 > result.score2 ? 'red' : result.score1 < result.score2 ? 'blue' : 'black' }}>
+                          {result.score1}
+                        </span>
+                        {` vs `}
+                        <span style={{ color: result.score2 > result.score1 ? 'red' : result.score2 < result.score1 ? 'blue' : 'black' }}>
+                          {`${result.score2} `}
+                        </span>
+                        <span style={{ color: 'black' }}>
+                          {result.team2}
+                        </span>
+                      </TeamandScore>
+                      <TeamandScore>{result.stadium}</TeamandScore>
+                    </CellD>
+
+                    {resultIndex !== resultsByDate[date].length - 1 && <HrB></HrB>}
+                    {/* 맨 마지막 아이템이 아닌 경우에만 초록색 선을 렌더링 */}
+                  </div>
+                ))}
+              </StyledContainer>
+            </StyledContainerbig>
+          </div>
+        ))}
+      </div>
+    </>
   );
-  }
-  
+}
 
-  
 export default GameResultsTable;
