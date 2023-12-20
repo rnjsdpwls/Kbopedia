@@ -12,10 +12,12 @@ app.use(cors());
 
 // MySQL 연결 설정
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "root1234@#@#",
-  database: "cheers_data",
+  ENGINE: "django.db.backends.mysql",
+  NAME: process.env.DATABASE_NAME,
+  USER: process.env.DATABASE_USER,
+  PASSWORD: process.env.DATABASE_PASSWORD,
+  HOST: process.env.DATABASE_HOST,
+  PORT: process.env.DATABASE_PORT,
 });
 
 connection.connect((err) => {
